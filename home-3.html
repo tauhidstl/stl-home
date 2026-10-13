@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StreamsTech — Custom Software, GIS &amp; MEL Platforms</title>
+<meta name="description" content="StreamsTech builds custom software, GIS platforms, MEL systems and data tools for public agencies, development programmes and enterprise teams.">
+<meta name="theme-color" content="#1E2027">
+<link rel="icon" href="assets/media/stl-logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300..800&display=swap">
+<!--
+  Home 3 — dark agency-style redesign (layout reference: Adixa).
+  Photography: Unsplash (unsplash.com/license), hotlinked per Unsplash guidelines —
+  Pawel Czerwinski, Miha Meglic, Ricardo Gomez Angel, Sebastian Herrmann, Rezwan Ahmed, Pervez Robin, Omar Hakeem,
+  Sazzad Bin Jafor, Tahamie Farooqui, Iraj Ishtiak, John. T, Taylor Cole, Andrey Metelev, Dylan Gillis, Chris Ensminger,
+  Dominic Kurniawan Suryaputra, Tasha Kostyuk, Andy Li, Centar MURID, Declan Sun, Vitaly Gariev.
+  Case-study screenshots, portraits, logos and award marks are Streams Tech's own assets.
+-->
+<style>
+:root{
+  --bg:#1E2027;--bg-2:#252830;--bg-3:#2E323C;--black:#0F1013;--ink:#141312;
+  --tx:#F3F3F5;--mu:rgba(243,243,245,.64);--line:rgba(255,255,255,.12);
+  --acc:#FAA61A;--acc-2:#FFD27A;--grad:linear-gradient(120deg,#FFD27A 0%,#FAA61A 52%,#F08C00 100%);
+  --ff:'Urbanist','Helvetica Neue',Arial,system-ui,sans-serif;
+  --g:clamp(18px,4vw,72px);--r:16px;--max:1560px;
+  --e:cubic-bezier(.65,.05,0,1);--eo:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:100px;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--ff);font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote,dl,dd{margin:0;padding:0}
+ul,ol{list-style:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.in{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+.sec{padding:clamp(88px,10vw,160px) 0;position:relative}
+
+/* label with pixel mark (reference pattern) */
+.lb{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--tx)}
+.lb::before{content:"";width:6px;height:6px;background:var(--acc);box-shadow:6px -6px 0 0 rgba(250,166,26,.55);margin:6px 6px 0 0;flex:none}
+.h2{font-size:clamp(34px,4.2vw,64px);font-weight:500;line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
+.h3{font-size:clamp(21px,1.7vw,26px);font-weight:600;line-height:1.25;letter-spacing:-.01em}
+.p{font-size:17px;line-height:1.75;color:var(--mu);text-wrap:pretty}
+.giant{font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.005em}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 26px;border-radius:8px;background:var(--acc);color:var(--ink);font-weight:600;font-size:16px;white-space:nowrap;transition:background .35s var(--eo),transform .35s var(--eo)}
+.btn svg{width:15px;height:15px;transition:transform .45s var(--e)}
+.btn:hover{background:#fff}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
+.ln{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--tx);transition:color .3s,gap .35s var(--eo)}
+.ln svg{width:13px;height:13px}
+.ln:hover{color:var(--acc);gap:12px}
+.pill{display:inline-flex;align-items:center;height:38px;padding:0 17px;border-radius:999px;border:1px solid var(--line);font-size:15px;font-weight:500;white-space:nowrap;color:var(--tx);transition:border-color .3s,color .3s}
+.pill:hover{border-color:var(--acc);color:var(--acc)}
+.circ{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;transition:background .3s,border-color .3s,color .3s}
+.circ:hover{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.circ svg{width:15px;height:15px}
+.pager{display:flex;align-items:center;gap:20px;font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* ambient glow (reference uses soft coloured light in corners) */
+.glow{position:absolute;pointer-events:none;border-radius:50%;filter:blur(90px);opacity:.28;background:var(--acc);z-index:0}
+
+/* reveals */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--eo),transform 1s var(--eo);transition-delay:var(--d,0s)}
+.rv.on{opacity:1;transform:none}
+.lines .l{display:block;overflow:hidden;padding-bottom:.06em}
+.lines .l>span{display:inline-block;transform:translateY(108%);transition:transform 1.1s var(--e);transition-delay:calc(var(--i,0) * .09s)}
+.lines.on .l>span{transform:none}
+@media (prefers-reduced-motion:reduce){.rv,.lines .l>span{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* ======================= HEADER ======================= */
+.hd{position:fixed;top:0;left:0;right:0;z-index:300;height:88px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--g);transition:transform .6s var(--e),background .4s}
+.hd::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line);transition:opacity .4s}
+.hd.solid{background:rgba(30,32,39,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.hd.hide{transform:translateY(-100%)}
+.hd .logo img{height:34px;width:auto;filter:brightness(0) invert(1)}
+/* hanging "tab" that holds the menu */
+.tab{position:absolute;left:50%;top:0;transform:translateX(-50%);height:88px;display:flex;align-items:center;gap:6px;padding:0 44px;background:var(--black);border-radius:0 0 34px 34px;z-index:2}
+.tab::before,.tab::after{content:"";position:absolute;top:0;width:44px;height:100%;background:var(--black)}
+.tab::before{left:-30px;transform:skewX(24deg);border-bottom-left-radius:30px}
+.tab::after{right:-30px;transform:skewX(-24deg);border-bottom-right-radius:30px}
+.ni{position:relative;z-index:1}
+.nl{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;font-size:15px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--tx);transition:color .3s}
+.nl:hover,.ni[data-open="1"] .nl{color:var(--acc)}
+.nl svg{width:10px;height:10px;transition:transform .4s var(--e)}
+.ni[data-open="1"] .nl svg{transform:rotate(180deg)}
+.dd{position:absolute;top:calc(100% + 22px);left:50%;transform:translate(-50%,10px);background:#16171C;border:1px solid var(--line);border-radius:14px;padding:10px;min-width:280px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);opacity:0;visibility:hidden;transition:opacity .3s var(--eo),transform .4s var(--eo),visibility 0s linear .3s}
+.ni[data-open="1"] .dd{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:0s}
+.dd .it{display:block;padding:12px 14px;border-radius:10px;transition:background .25s}
+.dd .it:hover{background:var(--bg-2)}
+.dd .it b{display:block;font-size:15px;font-weight:600}
+.dd .it span{display:block;font-size:13px;line-height:1.45;color:var(--mu)}
+.dd .it:hover b{color:var(--acc)}
+.dd .gl{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);padding:10px 14px 6px}
+.dd.mega{width:min(1060px,calc(100vw - 48px));display:grid;grid-template-columns:1fr 1fr minmax(260px,.9fr);gap:6px;padding:14px}
+.dd.mega .q{background:var(--grad);color:var(--ink);border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.dd.mega .q p{font-size:16px;line-height:1.5;font-weight:600}
+.dd.mega .q .who{display:flex;align-items:center;gap:12px}
+.dd.mega .q .who img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.dd.mega .q .who b{display:block;font-size:14px}
+.dd.mega .q .who span{display:block;font-size:12px;opacity:.75}
+.dd.mega .ft{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line);margin-top:6px;padding-top:12px}
+.dd.mega .ft a{font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--line);transition:border-color .25s,color .25s}
+.dd.mega .ft a:hover{border-color:var(--acc);color:var(--acc)}
+.dd.mega .ft a.all{margin-left:auto;background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.hd-r{display:flex;align-items:center;gap:22px;position:relative;z-index:3}
+.hd-r .btn{height:46px;padding:0 20px;font-size:15px}
+.burger{width:44px;height:44px;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:6px}
+.burger i{display:block;height:2px;background:var(--tx);border-radius:2px;transition:width .4s var(--e),background .3s}
+.burger i:nth-child(1){width:34px}.burger i:nth-child(2){width:44px}.burger i:nth-child(3){width:22px}
+.burger:hover i{width:44px;background:var(--acc)}
+@media (max-width:1180px){.tab,.hd-r .btn{display:none}}
+
+/* off-canvas */
+.oc-bg{position:fixed;inset:0;z-index:390;background:rgba(0,0,0,.55);opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s linear .4s}
+.oc-bg.open{opacity:1;visibility:visible;transition-delay:0s}
+.oc{position:fixed;top:0;right:0;bottom:0;z-index:400;width:min(460px,100vw);background:var(--black);border-left:1px solid var(--line);padding:28px 32px 36px;display:flex;flex-direction:column;gap:30px;overflow:auto;transform:translateX(100%);transition:transform .7s var(--e)}
+.oc.open{transform:none}
+.oc-top{display:flex;justify-content:space-between;align-items:center}
+.oc-top img{height:30px;filter:brightness(0) invert(1)}
+.oc-x{width:44px;height:44px;border-radius:50%;background:var(--acc);color:var(--ink);display:grid;place-items:center;transition:transform .5s var(--e)}
+.oc-x:hover{transform:rotate(90deg)}
+.oc-x svg{width:14px;height:14px}
+.oc-nav>li{border-bottom:1px solid var(--line)}
+.oc-nav .row{display:flex;align-items:center;justify-content:space-between;width:100%;padding:16px 0;font-size:24px;font-weight:600;letter-spacing:-.01em;text-align:left;transition:color .3s}
+.oc-nav .row:hover{color:var(--acc)}
+.oc-nav .row span.s{font-size:18px;color:var(--mu)}
+.oc-sub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--e)}
+.oc-nav li[data-open="1"] .oc-sub{grid-template-rows:1fr}
+.oc-sub>div{overflow:hidden}
+.oc-sub ul{display:flex;flex-direction:column;gap:2px;padding:0 0 16px}
+.oc-sub a{display:block;padding:7px 0;font-size:16px;color:var(--mu);transition:color .25s}
+.oc-sub a:hover{color:var(--acc)}
+.oc .tag{font-size:17px;line-height:1.6;color:var(--mu)}
+.oc .adr{display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.55;color:var(--mu)}
+.oc .adr a{color:var(--tx)}
+.oc .mail{font-size:22px;font-weight:600;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.oc .mail:hover{color:var(--acc)}
+
+/* ======================= HERO ======================= */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(120px,15vh,170px) 0 clamp(56px,8vh,96px);overflow:hidden;isolation:isolate}
+.hero .blob{position:absolute;z-index:-1;left:50%;top:50%;width:min(1000px,78vw);aspect-ratio:1;transform:translate(-40%,-48%);border-radius:50%;overflow:hidden;-webkit-mask-image:radial-gradient(closest-side,#000 58%,transparent 100%);mask-image:radial-gradient(closest-side,#000 58%,transparent 100%);animation:float 16s ease-in-out infinite alternate}
+.hero .blob img{width:100%;height:100%;object-fit:cover;opacity:.9;animation:turn 90s linear infinite}
+@keyframes float{from{transform:translate(-40%,-48%) scale(1)}to{transform:translate(-44%,-52%) scale(1.05)}}
+@keyframes turn{to{transform:rotate(360deg)}}
+.hero .glow{width:520px;height:520px;left:-200px;bottom:-240px;opacity:.18}
+.hero h1{font-size:clamp(32px,4.5vw,80px)}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .l>span{display:inline-flex;align-items:center;gap:.28em;transform:translateY(108%);animation:up 1.1s var(--e) forwards;animation-delay:calc(.2s + var(--i) * .12s)}
+.hero h1 .r{text-align:right}
+.hero h1 .x{padding-left:7%}
+.hero h1 .box{background:var(--grad);color:var(--ink);padding:.02em .22em .04em;border-radius:.14em}
+.hero h1 .mk{width:1.05em;height:1.05em;flex:none}
+.hero h1 .mk img{width:100%;height:100%;object-fit:contain}
+@keyframes up{to{transform:none}}
+.hero-row{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:28px 48px;align-items:end;margin-top:clamp(14px,2vw,28px)}
+.hero-row .lead{display:flex;flex-direction:column;gap:26px;opacity:0;animation:fade 1s var(--eo) .9s forwards}
+.hero-row .lead p{font-size:clamp(17px,1.25vw,20px);line-height:1.7;color:rgba(243,243,245,.86);font-weight:300;text-wrap:pretty}
+.hero-row .lead .acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.scroll{position:absolute;right:var(--g);bottom:clamp(22px,4vh,40px);display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mu)}
+.scroll i{width:1px;height:48px;background:var(--line);position:relative;overflow:hidden}
+.scroll i::after{content:"";position:absolute;left:0;top:0;width:100%;height:40%;background:var(--acc);animation:sc 1.8s var(--e) infinite}
+@keyframes sc{from{transform:translateY(-100%)}to{transform:translateY(260%)}}
+@media (max-width:900px){
+  .hero h1 .r{text-align:left}.hero h1 .x{padding-left:0}
+  .hero-row{grid-template-columns:1fr}
+  .hero .blob{width:120vw;transform:translate(-50%,-40%);animation:none}
+  .scroll{display:none}
+}
+@media (prefers-reduced-motion:reduce){.hero .blob,.hero .blob img{animation:none!important}.hero h1 .l>span,.hero-row .lead{animation:none!important;transform:none!important;opacity:1!important}}
+
+/* ======================= WHERE WE DELIVER ======================= */
+.about{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,96px);align-items:start}
+.about-l{display:flex;flex-direction:column;gap:28px}
+.about-l .h2{font-size:clamp(38px,4.6vw,72px)}
+.about-l .row{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;align-items:center;margin-top:18px}
+.about-l .row svg{width:80px;height:80px;color:var(--tx)}
+.about-r{position:relative;padding-top:92px}
+.shapes{position:absolute;top:0;right:0;display:flex;align-items:flex-end;gap:0}
+.shapes i{display:block}
+.shapes i:first-child{width:44px;height:44px;border:1.5px solid var(--tx);border-right:0;border-bottom:0;border-top-left-radius:100%}
+.shapes i:last-child{width:84px;height:84px;background:var(--acc);border-top-right-radius:100%}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{border-radius:var(--r);padding:30px 28px 28px;display:flex;flex-direction:column;gap:28px;min-height:230px;border:1px solid var(--line)}
+.stat.f{background:var(--bg-3);border-color:transparent}
+.stat .n{font-size:clamp(46px,4.2vw,68px);font-weight:600;line-height:1;color:var(--acc);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .t{margin-top:auto;text-align:right;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.stat .t b{font-size:17px;font-weight:600;line-height:1.3}
+.stat .t span{font-size:14px;line-height:1.5;color:var(--mu);max-width:24ch}
+.wide{margin:clamp(56px,7vw,110px) auto 0;width:min(100%,1180px);aspect-ratio:21/9;border-radius:var(--r);overflow:hidden}
+.wide img{width:100%;height:120%;object-fit:cover;transform:translateY(var(--py,0));will-change:transform}
+@media (max-width:980px){.about{grid-template-columns:1fr}.about-r{padding-top:0}.shapes{display:none}.about-l .row{grid-template-columns:72px minmax(0,1fr)}.about-l .row svg{width:56px;height:56px}.wide{aspect-ratio:16/10}}
+@media (max-width:520px){.stats{grid-template-columns:1fr}.stat{min-height:0}}
+
+/* practices slider */
+.sl-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin:clamp(72px,8vw,128px) 0 40px}
+.sl{position:relative;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.sl-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab}
+.sl-track::-webkit-scrollbar{display:none}
+.sl-track.drag{cursor:grabbing;scroll-snap-type:none}
+.pc{flex:0 0 clamp(300px,36%,560px);scroll-snap-align:start;padding:clamp(34px,4vw,72px) clamp(26px,3.6vw,64px);display:flex;flex-direction:column;gap:22px;min-height:480px;border-right:1px solid var(--line);position:relative;user-select:none;transition:background .4s}
+.pc:hover{background:rgba(255,255,255,.02)}
+.pc:last-child{border-right:0}
+.pc>svg.ic{width:62px;height:62px;color:var(--tx);stroke-width:1.4}
+.pc .h3{font-size:26px}
+.pc p{margin-top:auto;font-size:16px;line-height:1.8;color:var(--mu);text-wrap:pretty}
+.pc .tags{display:flex;flex-wrap:wrap;gap:10px}
+.pc .no{position:absolute;top:28px;right:30px;font-size:14px;font-weight:600;color:var(--mu)}
+.pc .wv{position:absolute;right:0;bottom:0;width:62%;opacity:.25;pointer-events:none}
+.sl .glow{width:420px;height:420px;left:-180px;bottom:-240px}
+
+/* ======================= WHO WE BUILD FOR ======================= */
+.xp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,130px);align-items:center}
+.xp-img{position:relative}
+.xp-img .fr{border-radius:var(--r);overflow:hidden;aspect-ratio:9/11}
+.xp-img .fr img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--e)}
+.xp-img:hover .fr img{transform:scale(1.05)}
+.seal{position:absolute;top:10%;right:-72px;width:200px;height:200px;border-radius:50%;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center}
+.seal svg{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);animation:turn 22s linear infinite}
+.seal svg text{font-family:var(--ff);font-size:10px;font-weight:600;letter-spacing:.16em;fill:var(--tx)}
+.seal i{width:62px;height:62px;border-radius:50%;background:var(--acc);display:grid;place-items:center}
+.seal i img{width:30px;height:30px;object-fit:contain;filter:brightness(0)}
+.xp-r{display:flex;flex-direction:column;gap:26px}
+.xp-list{display:grid;grid-template-columns:140px minmax(0,1fr);gap:32px;margin-top:14px}
+.xp-list>svg{width:140px;height:140px;color:var(--tx)}
+.xp-list ul{display:flex;flex-direction:column;gap:22px}
+.xp-list li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:14px}
+.xp-list li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc);margin-top:11px}
+.xp-list li b{display:block;font-size:19px;font-weight:600;line-height:1.35}
+.xp-list li p{font-size:15px;line-height:1.65;color:var(--mu);margin:4px 0 8px;text-wrap:pretty}
+@media (max-width:980px){.xp{grid-template-columns:1fr}.seal{right:12px;top:auto;bottom:-56px;width:150px;height:150px}.xp-img{margin-bottom:40px}.xp-list{grid-template-columns:1fr}.xp-list>svg{display:none}}
+
+/* ======================= SERVICES ======================= */
+.sv-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:end;margin-bottom:56px}
+.sv-head .p{justify-self:end;max-width:44ch}
+.sv-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:4px;position:relative;overflow:hidden}
+.sv{position:relative;padding:40px 30px 34px;display:flex;flex-direction:column;gap:18px;min-height:390px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .45s var(--eo)}
+.sv:nth-child(4n){border-right:0}
+.sv:nth-child(n+5){border-bottom:0}
+.sv::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--e)}
+.sv:hover{background:rgba(250,166,26,.05)}
+.sv:hover::before{transform:scaleX(1)}
+.sv .top{display:flex;justify-content:space-between;align-items:flex-start}
+.sv .ic{width:64px;height:64px;border-radius:50%;background:rgba(250,166,26,.12);display:grid;place-items:center;color:var(--acc)}
+.sv .ic svg{width:26px;height:26px;stroke-width:1.6}
+.sv .tg{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:4px;background:var(--acc);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.06em}
+.sv .h3{margin-top:22px}
+.sv p{font-size:15px;line-height:1.7;color:var(--mu);text-wrap:pretty}
+.sv .ln{margin-top:auto}
+@media (max-width:1100px){.sv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sv:nth-child(4n){border-right:1px solid var(--line)}.sv:nth-child(2n){border-right:0}.sv:nth-child(n+5){border-bottom:1px solid var(--line)}.sv:nth-child(n+7){border-bottom:0}}
+@media (max-width:620px){.sv-head{grid-template-columns:1fr}.sv-head .p{justify-self:start}.sv-grid{grid-template-columns:1fr}.sv{border-right:0!important;border-bottom:1px solid var(--line)!important;min-height:0}.sv:last-child{border-bottom:0!important}}
+
+/* ======================= ENGAGEMENT (steps panel on image) ======================= */
+.hw{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.78fr);gap:0 clamp(24px,4vw,64px);align-items:start}
+.hw-l{padding-top:clamp(20px,6vw,110px);display:flex;flex-direction:column;gap:24px;max-width:640px}
+.hw-img{grid-row:1/span 2;grid-column:2;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:relative}
+.hw-img img{width:100%;height:100%;object-fit:cover}
+.panel{grid-column:1/span 2;grid-row:2;position:relative;z-index:2;width:min(100%,1060px);margin-top:clamp(40px,5vw,64px);background:rgba(22,23,28,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.st{position:relative;text-align:left;padding:34px 26px 30px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;border-right:1px solid var(--line);transition:background .4s}
+.st:last-child{border-right:0}
+.st:hover{background:rgba(255,255,255,.03)}
+.st .ci{width:72px;height:72px;border-radius:50%;background:var(--bg-3);display:grid;place-items:center;transition:background .4s,color .4s}
+.st .ci svg{width:28px;height:28px;stroke-width:1.5}
+.st .tg{display:inline-flex;align-items:center;min-height:28px;padding:3px 10px;border-radius:4px;border:1px solid var(--acc);color:var(--acc);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;transition:background .3s,color .3s}
+.st b{font-size:20px;font-weight:600;line-height:1.3}
+.st[aria-selected="true"]{background:rgba(250,166,26,.06)}
+.st[aria-selected="true"] .ci{background:var(--acc);color:var(--ink)}
+.st[aria-selected="true"] .tg{background:var(--acc);color:var(--ink)}
+.st::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--acc);transform:scaleX(0);transition:transform .6s var(--e)}
+.st[aria-selected="true"]::after{transform:scaleX(1)}
+.det{border-top:1px solid var(--line);padding:30px 30px 32px;display:grid}
+.det>div{grid-area:1/1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px 40px;align-items:start;opacity:0;transform:translateY(10px);visibility:hidden;transition:opacity .5s var(--eo),transform .6s var(--eo),visibility 0s linear .5s}
+.det>div.on{opacity:1;transform:none;visibility:visible;transition-delay:.05s}
+.det p{font-size:17px;line-height:1.75;color:rgba(243,243,245,.82);text-wrap:pretty}
+.det dl{display:grid;gap:14px}
+.det dl div{display:grid;grid-template-columns:22px minmax(0,1fr);gap:4px 12px}
+.det dl div::before{content:"✓";grid-row:1/span 2;width:22px;height:22px;border-radius:50%;background:rgba(250,166,26,.16);color:var(--acc);display:grid;place-items:center;font-size:12px;font-weight:700}
+.det dt{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
+.det dd{font-size:15px;line-height:1.5}
+@media (max-width:1100px){.hw{grid-template-columns:1fr}.hw-img{grid-row:auto;grid-column:auto;aspect-ratio:16/10;margin-top:32px}.panel{grid-column:auto;grid-row:auto;margin-top:-80px;width:calc(100% - 24px);justify-self:center}.steps{grid-template-columns:1fr 1fr}.st:nth-child(2){border-right:0}.st:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:620px){.det>div{grid-template-columns:1fr}.st{padding:24px 18px}.st .ci{width:56px;height:56px}.panel{margin-top:-48px}}
+
+/* ======================= TESTIMONIALS ======================= */
+.ts{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,110px);align-items:start}
+.ts-l{display:flex;flex-direction:column;gap:26px;position:sticky;top:120px}
+.avs{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.avs button{width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid transparent;opacity:.45;filter:grayscale(1);transition:opacity .3s,filter .3s,border-color .3s,transform .3s var(--eo)}
+.avs button img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.avs button:hover{opacity:.8;transform:translateY(-2px)}
+.avs button[aria-selected="true"]{opacity:1;filter:none;border-color:var(--acc)}
+.qwrap{display:grid;border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);position:relative;overflow:hidden}
+.qwrap::before{content:"\201C";position:absolute;right:28px;top:-28px;font-size:240px;line-height:1;font-weight:700;color:rgba(250,166,26,.1);pointer-events:none}
+.qc{grid-area:1/1;padding:clamp(32px,4vw,64px);display:flex;flex-direction:column;gap:32px;opacity:0;visibility:hidden;transform:translateX(24px);transition:opacity .55s var(--eo),transform .7s var(--eo),visibility 0s linear .55s}
+.qc.on{opacity:1;visibility:visible;transform:none;transition-delay:.05s}
+.qc .stars{display:flex;gap:4px;color:var(--acc)}
+.qc .stars svg{width:18px;height:18px}
+.qc blockquote{font-size:clamp(19px,1.6vw,24px);line-height:1.6;font-weight:400;text-wrap:pretty}
+.qc .who{display:flex;align-items:center;gap:16px;padding-top:26px;border-top:1px solid var(--line)}
+.qc .who img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;flex:none}
+.qc .who b{display:block;font-size:19px;font-weight:600}
+.qc .who span{display:block;font-size:14px;color:var(--mu)}
+@media (max-width:980px){.ts{grid-template-columns:1fr}.ts-l{position:static}}
+
+/* ======================= SUCCESS STORIES ======================= */
+.wk-h{font-size:clamp(34px,5.4vw,100px)}
+.wk-h .l:first-child{padding-left:12%}
+.wk-h .cnt{font-size:.42em;font-weight:600;vertical-align:.55em;margin-right:.3em;letter-spacing:.02em}
+.wk-h .l:last-child{text-align:right}
+.wk-intro{max-width:720px;margin:40px auto 0;display:flex;flex-direction:column;gap:26px;align-items:flex-start}
+.works{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px) clamp(28px,4vw,80px);margin-top:clamp(56px,7vw,110px)}
+.works>article:nth-child(even){margin-top:clamp(0px,9vw,150px)}
+.wc{display:flex;flex-direction:column;gap:20px}
+.wc .im{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1}
+.wc .im>img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--e)}
+.wc:hover .im>img{transform:scale(1.05)}
+.wc .im::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,16,19,0) 55%,rgba(15,16,19,.55) 100%);pointer-events:none}
+.wc .shot{position:absolute;z-index:2;left:18px;top:18px;width:42%;border-radius:10px;overflow:hidden;box-shadow:0 20px 40px -14px rgba(0,0,0,.7);border:3px solid #fff;background:#fff}
+.wc .shot img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:left top}
+.wc .tgs{position:absolute;z-index:2;right:18px;bottom:18px;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;max-width:80%}
+.wc .tgs span{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:999px;background:var(--bg);font-size:14px;font-weight:500;white-space:nowrap}
+.wc .tgs span.a{background:var(--acc);color:var(--ink);font-weight:700}
+.wc h3{font-size:clamp(22px,2vw,30px);font-weight:600;line-height:1.2;letter-spacing:-.01em}
+.wc .meta{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}
+.wc .meta b{color:var(--tx)}
+.wc blockquote{font-size:19px;line-height:1.55;color:rgba(243,243,245,.86);text-wrap:pretty}
+.wc .mt{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.wc .mt .n{font-size:clamp(40px,3.6vw,56px);font-weight:600;line-height:1;color:var(--acc);letter-spacing:-.02em}
+.wc .mt .c{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)}
+.wc details{border-radius:12px}
+.wc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px;font-weight:600;padding:4px 0}
+.wc summary::-webkit-details-marker{display:none}
+.wc summary i{width:32px;height:32px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;flex:none;transition:transform .45s var(--e)}
+.wc summary i svg{width:12px;height:12px}
+.wc details[open] summary i{transform:rotate(45deg)}
+.wc dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 22px;padding-top:18px;font-size:15px;line-height:1.65}
+.wc dt{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);padding-top:3px}
+.wc dd{color:rgba(243,243,245,.82);text-wrap:pretty}
+.wc dd .ch{display:flex;flex-wrap:wrap;gap:6px}
+.wc dd .ch span{display:inline-flex;height:28px;align-items:center;padding:0 11px;border-radius:999px;border:1px solid var(--line);font-size:13px}
+.wc dd ul{display:flex;flex-direction:column;gap:6px}
+.wc dd li{display:flex;gap:10px}
+.wc dd li::before{content:"→";color:var(--acc)}
+@media (max-width:900px){.works{grid-template-columns:1fr}.works>article:nth-child(even){margin-top:0}.wk-h .l:first-child{padding-left:0}.wk-h .l:last-child{text-align:left}}
+@media (max-width:520px){.wc dl{grid-template-columns:1fr;gap:4px}.wc dt{padding-top:10px}.wc .shot{width:52%}}
+
+/* ======================= CLIENTS ======================= */
+.cl-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:end;margin-bottom:52px}
+.cl-head .p{justify-self:end;max-width:40ch}
+.logos{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.logos li{aspect-ratio:1.5;display:grid;place-items:center;padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .35s}
+.logos li:hover{background:var(--bg-2)}
+.logos img{max-height:42px;width:100%;object-fit:contain;opacity:.62;transition:opacity .35s,transform .5s var(--eo)}
+.logos img.svg{filter:brightness(0) invert(1)}
+.logos li:hover img{opacity:1;transform:scale(1.06)}
+@media (max-width:1100px){.logos{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media (max-width:620px){.cl-head{grid-template-columns:1fr}.cl-head .p{justify-self:start}.logos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ======================= TECHNOLOGY STACK (award-row pattern) ======================= */
+.dark{background:var(--black)}
+.tk-head{display:flex;flex-direction:column;gap:22px;margin-bottom:56px;padding-left:calc(28% + 36px)}
+.tk{display:grid;grid-template-columns:28% minmax(0,1fr);gap:36px;align-items:start}
+.tk-card{position:sticky;top:120px;background:var(--grad);color:var(--ink);border-radius:var(--r);padding:36px 34px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.tk-card p{font-size:clamp(18px,1.5vw,22px);line-height:1.5;font-weight:600;text-align:right;text-wrap:pretty}
+.tk-card img{width:44px;height:44px;object-fit:contain;filter:brightness(0)}
+.tk-rows>li{display:grid;grid-template-columns:minmax(150px,.7fr) minmax(0,2fr) 90px;gap:28px;align-items:center;padding:30px 0;border-top:1px solid var(--line);transition:padding .45s var(--eo)}
+.tk-rows>li:last-child{border-bottom:1px solid var(--line)}
+.tk-rows>li:hover{padding-left:12px}
+.tk-rows b{font-size:22px;font-weight:600;line-height:1.3}
+.tk-rows ul{display:flex;flex-wrap:wrap;gap:6px 18px}
+.tk-rows ul li{font-size:15px;color:var(--mu);position:relative;transition:color .25s}
+.tk-rows ul li:hover{color:var(--acc)}
+.tk-rows .c{font-size:clamp(36px,3.2vw,50px);font-weight:600;color:rgba(255,255,255,.28);text-align:right;line-height:1;font-variant-numeric:tabular-nums;transition:color .35s}
+.tk-rows>li:hover .c{color:var(--acc)}
+@media (max-width:1000px){.tk-head{padding-left:0}.tk{grid-template-columns:1fr}.tk-card{position:static;min-height:0}.tk-rows>li{grid-template-columns:1fr 70px;gap:12px 20px}.tk-rows ul{grid-column:1/-1;grid-row:2}}
+
+/* ======================= INDUSTRIES (hover list) ======================= */
+.id-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:end;margin-bottom:52px}
+.id-head .p{justify-self:end;max-width:42ch}
+.il>li{position:relative;border-top:1px solid var(--line)}
+.il>li:last-child{border-bottom:1px solid var(--line)}
+.ir{display:grid;grid-template-columns:70px minmax(0,1.05fr) minmax(0,1.2fr) 48px;gap:28px;align-items:center;padding:30px 0;transition:padding .5s var(--eo)}
+.ir .no{font-size:15px;font-weight:600;color:var(--mu)}
+.ir h3{font-size:clamp(26px,2.9vw,46px);font-weight:600;line-height:1.1;letter-spacing:-.02em;transition:color .35s}
+.ir .tx b{display:block;font-size:17px;font-weight:600;margin-bottom:4px}
+.ir .tx span{display:block;font-size:15px;line-height:1.65;color:var(--mu)}
+.ir .thumb{display:none}
+.il>li:hover .ir{padding-left:16px}
+.il>li:hover h3{color:var(--acc)}
+.il>li:hover .circ{background:var(--acc);border-color:var(--acc);color:var(--ink);transform:rotate(-45deg)}
+.il .circ{transition:background .3s,border-color .3s,color .3s,transform .5s var(--e)}
+.float{position:fixed;left:0;top:0;z-index:50;width:300px;aspect-ratio:4/3;border-radius:14px;overflow:hidden;pointer-events:none;opacity:0;transform:translate(40px,-50%) scale(.8) rotate(-4deg);transition:opacity .35s var(--eo),transform .5s var(--eo)}
+.float.on{opacity:1;transform:translate(40px,-50%) scale(1) rotate(-4deg)}
+.float img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
+.float img.on{opacity:1}
+@media (hover:none),(max-width:900px){.float{display:none}.ir{grid-template-columns:96px minmax(0,1fr);gap:8px 18px;align-items:start}.ir .thumb{display:block;grid-row:1/span 2;border-radius:10px;overflow:hidden;aspect-ratio:1}.ir .thumb img{width:100%;height:100%;object-fit:cover}.ir .no,.ir .circ{display:none}}
+@media (max-width:620px){.id-head{grid-template-columns:1fr}.id-head .p{justify-self:start}}
+
+/* ======================= WHY TEAMS CHOOSE (Q&A pattern) ======================= */
+.qa{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,6vw,110px);align-items:start;position:relative;z-index:1}
+.qa-l{display:flex;flex-direction:column;gap:26px;position:sticky;top:120px}
+.qa-l h2{font-size:clamp(36px,4.4vw,68px);font-weight:600;line-height:1.02;text-transform:uppercase;letter-spacing:-.01em}
+.qa-l h2 img{display:inline-block;height:.8em;width:auto;vertical-align:-.04em;margin-right:.14em}
+.acc{display:flex;flex-direction:column;gap:14px}
+.acc details{border:1px solid var(--line);border-radius:12px;background:rgba(15,16,19,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .35s}
+.acc details[open]{border-color:rgba(250,166,26,.45)}
+.acc summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) 36px;gap:16px;align-items:center;padding:24px 26px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .n{font-size:14px;font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.acc summary h3{font-size:clamp(18px,1.5vw,22px);font-weight:600;line-height:1.3}
+.acc summary i{width:36px;height:36px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;position:relative}
+.acc summary i::before,.acc summary i::after{content:"";position:absolute;width:12px;height:2px;background:currentColor;border-radius:2px;transition:transform .45s var(--e)}
+.acc summary i::after{transform:rotate(90deg)}
+.acc details[open] summary i::after{transform:rotate(0)}
+.acc .ab{margin:0 26px;padding:22px 0 26px;border-top:1px solid var(--line);font-size:17px;line-height:1.75;color:var(--mu);text-wrap:pretty}
+.qa-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.qa-bg img{position:absolute;right:-10%;top:10%;width:70%;opacity:.16;-webkit-mask-image:radial-gradient(closest-side,#000,transparent);mask-image:radial-gradient(closest-side,#000,transparent)}
+@media (max-width:980px){.qa{grid-template-columns:1fr}.qa-l{position:static}}
+
+/* ======================= CTA ======================= */
+.ribbons{position:relative;height:clamp(170px,17vw,260px);overflow:hidden;margin-top:clamp(40px,5vw,80px)}
+.rb{position:absolute;left:-5%;right:-5%;top:50%;height:clamp(76px,7.2vw,112px);display:flex;align-items:center;overflow:hidden}
+.rb.a{background:var(--grad);color:var(--ink);transform:translateY(-50%) rotate(-3deg);z-index:2;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.rb.b{background:#3A3322;color:rgba(255,255,255,.55);transform:translateY(-50%) rotate(3deg)}
+.rb .row{display:flex;width:max-content;animation:mq 60s linear infinite}
+.rb.b .row{animation-direction:reverse;animation-duration:70s}
+.rb span{display:inline-flex;align-items:center;gap:.6em;padding-right:.6em;font-size:clamp(28px,3.4vw,54px);font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.rb span b{font-size:.5em;font-weight:400}
+@keyframes mq{to{transform:translateX(-50%)}}
+.cta{text-align:left;padding-top:clamp(64px,8vw,120px)}
+.cta .lb{margin-bottom:30px}
+.cta h2{font-size:clamp(34px,5.6vw,104px)}
+.cta h2 .l:nth-child(2){padding-left:10%}
+.cta h2 .l:nth-child(3){text-align:right}
+.cta h2 .l>span{display:inline-flex;align-items:center;gap:.28em}
+.cta h2 .box{background:var(--grad);color:var(--ink);padding:.02em .22em .04em;border-radius:.14em}
+.cta h2 .mk{width:1em;height:1em;flex:none}
+.cta h2 .mk img{width:100%;height:100%;object-fit:contain}
+.cta-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 48px;align-items:center;margin-top:clamp(36px,4vw,60px);padding-top:36px;border-top:1px solid var(--line)}
+.cta-row .p{font-size:20px;max-width:40ch;color:rgba(243,243,245,.86)}
+.cta-row .acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.cta-row .acts a.mail{font-size:17px;font-weight:600;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;color:var(--mu);transition:color .3s}
+.cta-row .acts a.mail:hover{color:var(--acc)}
+.shots{overflow:hidden;margin-top:clamp(56px,6vw,90px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.shots .row{display:flex;gap:14px;width:max-content;animation:mq 120s linear infinite}
+.shots .sh{flex:none;width:clamp(220px,20vw,320px);aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#fff;opacity:.85}
+.shots .sh img{width:100%;height:100%;object-fit:cover;object-position:left top}
+@media (max-width:900px){.cta h2 .l:nth-child(2){padding-left:0}.cta h2 .l:nth-child(3){text-align:left}.cta-row{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.rb .row,.shots .row,.seal svg{animation:none!important}}
+
+/* ======================= FOOTER ======================= */
+.ft{margin:clamp(56px,6vw,100px) clamp(10px,2.4vw,44px) clamp(10px,2vw,32px);border-radius:clamp(20px,2.4vw,36px);background:radial-gradient(900px 500px at 20% 0%,rgba(255,255,255,.35),transparent 60%),var(--grad);color:var(--ink);padding:clamp(48px,6vw,110px) clamp(22px,6vw,110px) 0;overflow:hidden;position:relative}
+.ft a{transition:opacity .25s}
+.ft a:hover{opacity:.65}
+.ft-g{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,.7fr)) minmax(0,1.25fr);gap:40px 36px}
+.ft-brand{display:flex;flex-direction:column;gap:22px}
+.ft-brand img{height:40px;width:auto;align-self:flex-start;filter:brightness(0)}
+.ft-brand p{font-size:17px;line-height:1.7;max-width:38ch}
+.ft-brand .adr{font-size:19px;font-weight:600;line-height:1.45}
+.ft-brand .adr a{display:block;font-weight:500;font-size:17px;margin-top:4px}
+.ft h4{margin:0 0 20px;font-size:21px;font-weight:600}
+.ft ul{display:flex;flex-direction:column;gap:12px;font-size:16px}
+.ft .new{margin-left:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:var(--ink);color:var(--acc);vertical-align:2px}
+.ft-news p.lbl{font-size:21px;font-weight:600;margin-bottom:16px}
+.ft-news form{display:flex;align-items:center;height:60px;border:1px solid rgba(20,19,18,.45);border-radius:999px;padding:0 6px 0 24px;gap:8px}
+.ft-news input{flex:1;min-width:0;background:transparent;border:0;outline:none;font:inherit;font-size:16px;color:var(--ink)}
+.ft-news input::placeholder{color:rgba(20,19,18,.6)}
+.ft-news form button{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 18px;border-radius:999px;background:var(--ink);color:#fff;font-size:15px;font-weight:600;white-space:nowrap;transition:background .3s}
+.ft-news form button:hover{background:#2c2a27}
+.ft-news form button svg{width:14px;height:14px}
+.ft-news .or{display:block;font-size:15px;margin-top:14px}
+.ft-news .or a{text-decoration:underline;text-underline-offset:4px}
+.soc{display:flex;gap:10px;margin-top:22px}
+.soc a{width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center}
+.soc a:hover{opacity:1;background:#2c2a27}
+.soc svg{width:17px;height:17px;fill:currentColor}
+.ft-aw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px 56px;align-items:center;margin-top:clamp(48px,5vw,80px);padding-top:40px;border-top:1px solid rgba(20,19,18,.22)}
+.ft-aw p{font-size:15px;line-height:1.7;max-width:60ch}
+.ft-aw ul{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;flex-direction:row}
+.ft-aw li{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.ft-aw li .im{height:58px;display:grid;place-items:center}
+.ft-aw li img{max-height:58px;width:auto;filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply}
+.ft-aw li img.w{filter:brightness(0);mix-blend-mode:normal;max-height:48px}
+.ft-aw li span{font-size:12px;line-height:1.4;font-weight:600}
+.ft-word{font-size:clamp(64px,15.4vw,290px);font-weight:800;line-height:.78;letter-spacing:-.05em;white-space:nowrap;margin:clamp(36px,4vw,64px) -.04em 0;color:rgba(20,19,18,.92);user-select:none}
+.ft-bot{display:flex;justify-content:center;padding:24px 0 26px;margin-top:10px;border-top:1px solid rgba(20,19,18,.22);font-size:15px}
+.totop{position:absolute;right:clamp(16px,2vw,28px);bottom:18px;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.5);display:grid;place-items:center;transition:background .3s,transform .4s var(--eo)}
+.totop:hover{background:#fff;transform:translateY(-3px);opacity:1!important}
+.totop svg{width:18px;height:18px}
+@media (max-width:1180px){.ft-g{grid-template-columns:1fr 1fr 1fr}.ft-brand,.ft-news{grid-column:1/-1}}
+@media (max-width:760px){.ft-g{grid-template-columns:1fr 1fr}.ft-aw{grid-template-columns:1fr}.ft-aw ul{grid-template-columns:repeat(3,minmax(0,1fr))}.totop{display:none}}
+@media (max-width:460px){.ft-g{grid-template-columns:1fr}.ft-news form{height:auto;flex-wrap:wrap;border-radius:18px;padding:10px}.ft-news input{height:44px;padding:0 10px;flex-basis:100%}.ft-news form button{width:100%;justify-content:center}}
+
+/* ======================= CHAT ======================= */
+.chat-l{position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:250;display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 20px 0 8px;border-radius:999px;background:var(--acc);color:var(--ink);font-size:15px;font-weight:700;box-shadow:0 18px 40px -16px rgba(0,0,0,.6);transition:transform .4s var(--e)}
+.chat-l i{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--acc);display:grid;place-items:center}
+.chat-l i svg{width:18px;height:18px}
+.chat-l:hover{transform:translateY(-3px)}
+.chat-l.hide{transform:translateY(170%)}
+.chat{position:fixed;right:clamp(14px,2vw,28px);bottom:clamp(14px,2vw,28px);z-index:260;width:min(380px,calc(100vw - 28px));height:min(560px,calc(100svh - 40px));border-radius:20px;background:var(--bg-2);border:1px solid var(--line);box-shadow:0 40px 90px -30px rgba(0,0,0,.8);display:flex;flex-direction:column;overflow:hidden;transform-origin:bottom right;transform:scale(.9) translateY(20px);opacity:0;visibility:hidden;transition:transform .45s var(--e),opacity .3s,visibility 0s linear .45s}
+.chat.open{transform:none;opacity:1;visibility:visible;transition-delay:0s}
+.chat-h{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:var(--grad);color:var(--ink)}
+.chat-h b{font-size:16px;display:flex;align-items:center;gap:10px}
+.chat-h b img{width:28px;height:28px;object-fit:contain;filter:brightness(0)}
+.chat-h button{width:32px;height:32px;border-radius:50%;background:rgba(20,19,18,.12);display:grid;place-items:center}
+.chat-h button svg{width:12px;height:12px}
+.chat-b{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:86%;padding:11px 14px;border-radius:14px;font-size:14px;line-height:1.55;white-space:pre-line;animation:fade .35s var(--eo)}
+.msg.bot{background:var(--bg-3);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.me{background:var(--acc);color:var(--ink);border-bottom-right-radius:4px;align-self:flex-end}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:14px;background:var(--bg-3);border-radius:14px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--mu);animation:dot 1s ease-in-out infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,80%,100%{opacity:.3;transform:none}40%{opacity:1;transform:translateY(-3px)}}
+.chat-f{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat-f input{flex:1;min-width:0;height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--tx);font:inherit;font-size:14px;outline:none}
+.chat-f input:focus{border-color:var(--acc)}
+.chat-f button{width:44px;height:44px;border-radius:50%;background:var(--acc);color:var(--ink);display:grid;place-items:center}
+.chat-f button svg{width:16px;height:16px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ar" viewBox="0 0 14 14"><path d="M3 11L11 3M11 3H5M11 3V9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="arl" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="chev" viewBox="0 0 10 10"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="x" viewBox="0 0 14 14"><path d="M3 3l8 8M11 3l-8 8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.2 6.8.8-5 4.7 1.3 6.7L12 17.6 6 20.9l1.3-6.7-5-4.7 6.8-.8z" fill="currentColor"/></symbol>
+  <symbol id="plus" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- ======================= HEADER ======================= -->
+<header class="hd" id="hd">
+  <a class="logo" href="home-3.html" aria-label="Streams Tech home"><img src="assets/streamstech-logo.webp" alt="Streams Tech"></a>
+  <nav class="tab" aria-label="Main navigation">
+    <div class="ni" data-dd>
+      <button class="nl" type="button" aria-expanded="false" aria-haspopup="true">Home <svg><use href="#chev"/></svg></button>
+      <div class="dd">
+        <a class="it" href="index.html"><b>Home 1</b><span>The current homepage.</span></a>
+        <a class="it" href="home-2.html"><b>Home 2</b><span>The redesigned homepage.</span></a>
+        <a class="it" href="home-3.html" aria-current="page"><b>Home 3</b><span>The dark-theme redesign.</span></a>
+        <a class="it" href="home-4.html"><b>Home 4</b><span>The panel-based redesign.</span></a>
+      </div>
+    </div>
+    <div class="ni" data-dd>
+      <button class="nl" type="button" aria-expanded="false" aria-haspopup="true">Services <svg><use href="#chev"/></svg></button>
+      <div class="dd mega">
+        <div>
+          <div class="gl">Platforms &amp; Data</div>
+          <a class="it" href="#services"><b>Geographic Information System</b><span>National spatial platforms, land records and utility network models.</span></a>
+          <a class="it" href="#services"><b>Monitoring, Evaluation, and Learning</b><span>Offline-first field data and reporting for donor-funded programmes.</span></a>
+          <a class="it" href="#services"><b>Business Intelligence</b><span>Dashboards, warehouses and Power BI that turn data into decisions.</span></a>
+          <a class="it" href="#services"><b>AI/ML Services</b><span>Predictive models and automation built on your operational data.</span></a>
+        </div>
+        <div>
+          <div class="gl">Engineering &amp; Delivery</div>
+          <a class="it" href="#services"><b>Cloud Solutions</b><span>Deployment and operations inside government and enterprise constraints.</span></a>
+          <a class="it" href="#services"><b>Environmental Intelligence</b><span>Climate, land and sensor pipelines for monitoring and MRV.</span></a>
+          <a class="it" href="#services"><b>Enterprise Application Development</b><span>Portals, case management and integration layers across legacy systems.</span></a>
+          <a class="it" href="#services"><b>Team Augmentation</b><span>Dedicated engineers embedded with your team for multi-year delivery.</span></a>
+        </div>
+        <div class="q">
+          <p>&ldquo;In our work with Streams Tech, they demonstrated a strong understanding of complex development programme needs and translated them into a flexible, scalable, and user-centric digital platform...&rdquo;</p>
+          <div class="who"><img src="assets/testimonials/tasrin-shampa.png" alt=""><div><b>Tasrin Jahan Shampa</b><span>Head of Technology, BRAC International</span></div></div>
+        </div>
+        <div class="ft"><a href="#work">Case Studies</a><a href="#engagement">Engagement Models</a><a href="#contact">Talk to an Engineer</a><a class="all" href="#services">All Services</a></div>
+      </div>
+    </div>
+    <a class="nl" href="#industries">Industries</a>
+    <a class="nl" href="#work">Insights</a>
+    <a class="nl" href="#deliver">About</a>
+    <a class="nl" href="#audience">Careers</a>
+  </nav>
+  <div class="hd-r">
+    <a class="btn" href="#contact">Contact Us <svg><use href="#ar"/></svg></a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="oc"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<!-- off-canvas -->
+<div class="oc-bg" id="oc-bg"></div>
+<aside class="oc" id="oc" aria-label="Menu" aria-hidden="true">
+  <div class="oc-top"><img src="assets/streamstech-logo.webp" alt="Streams Tech"><button class="oc-x" id="oc-x" type="button" aria-label="Close menu"><svg><use href="#x"/></svg></button></div>
+  <ul class="oc-nav">
+    <li data-open="0"><button class="row" type="button" data-acc>Home <span class="s">+</span></button><div class="oc-sub"><div><ul><li><a href="index.html">Home 1</a></li><li><a href="home-2.html">Home 2</a></li><li><a href="home-3.html">Home 3</a></li><li><a href="home-4.html">Home 4</a></li></ul></div></div></li>
+    <li data-open="0"><button class="row" type="button" data-acc>Services <span class="s">+</span></button><div class="oc-sub"><div><ul>
+      <li><a href="#services">Geographic Information System</a></li><li><a href="#services">Monitoring, Evaluation, and Learning</a></li><li><a href="#services">Business Intelligence</a></li><li><a href="#services">AI/ML Services</a></li><li><a href="#services">Cloud Solutions</a></li><li><a href="#services">Environmental Intelligence</a></li><li><a href="#services">Enterprise Application Development</a></li><li><a href="#services">Team Augmentation</a></li>
+    </ul></div></div></li>
+    <li><a class="row" href="#industries">Industries <span class="s">→</span></a></li>
+    <li><a class="row" href="#work">Insights <span class="s">→</span></a></li>
+    <li><a class="row" href="#deliver">About <span class="s">→</span></a></li>
+    <li><a class="row" href="#audience">Careers <span class="s">→</span></a></li>
+  </ul>
+  <a class="btn" href="#contact" style="align-self:flex-start">Contact Us <svg><use href="#ar"/></svg></a>
+  <p class="tag">An engineering partner for national GIS platforms, development programmes, and enterprise teams.</p>
+  <div class="adr">
+    <span>161 Fort Evans Rd NE, Suite 325, Leesburg, VA 20176, U.S.A.<br><a href="tel:+17036654700">+1 703 665 4700</a></span>
+    <span>House 16, Suite F4, Road 23, Block B, Banani, Dhaka 1213, Bangladesh<br><a href="tel:+880255033794">+880 2 5503 3794</a></span>
+  </div>
+  <a class="mail" href="mailto:contact@streamstech.com">contact@streamstech.com</a>
+</aside>
+
+<main>
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top">
+  <div class="blob" aria-hidden="true"><img src="https://images.unsplash.com/photo-1711214571331-2837c944009f?w=1600&q=80&auto=format&fit=crop" alt="" fetchpriority="high"></div>
+  <span class="glow" aria-hidden="true"></span>
+  <div class="in">
+    <h1 class="giant" aria-label="The Engineering Partner Behind National GIS Platforms, Global Development Programs, and Enterprise Teams">
+      <span class="l" aria-hidden="true"><span style="--i:0">The Engineering Partner Behind</span></span>
+      <span class="l r" aria-hidden="true"><span style="--i:1"><span class="mk"><img src="assets/media/stl-logo-icon.png" alt=""></span><span class="box">National GIS Platforms,</span></span></span>
+      <span class="l x" aria-hidden="true"><span style="--i:2">Global Development Programs,</span></span>
+    </h1>
+    <div class="hero-row">
+      <div class="lead">
+        <p>We build custom software, GIS platforms, MEL systems, and data tools for enterprise teams and organisations where getting the software right actually matters — from national-scale spatial platforms to sustained, multi-year engagements.</p>
+        <div class="acts">
+          <a class="btn" href="#work">View Our Work <svg><use href="#ar"/></svg></a>
+          <a class="ln" href="#contact">Partner With Us <svg><use href="#ar"/></svg></a>
+        </div>
+      </div>
+      <p class="giant l r" aria-hidden="true" style="font-size:clamp(32px,4.5vw,80px);overflow:hidden;padding-bottom:.04em"><span style="display:inline-block;transform:translateY(108%);animation:up 1.1s var(--e) .56s forwards">and Enterprise Teams</span></p>
+    </div>
+  </div>
+  <span class="scroll" aria-hidden="true"><i></i>Scroll</span>
+</section>
+
+<!-- ======================= WHERE WE DELIVER ======================= -->
+<section class="sec" id="deliver">
+  <div class="in">
+    <div class="about">
+      <div class="about-l">
+        <span class="lb rv">Where we deliver</span>
+        <h2 class="h2 lines" id="h-deliver">Domain depth across four practices</h2>
+        <div class="row rv">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="square" aria-hidden="true"><path d="M40 4v72M4 40h72M14.5 14.5l51 51M65.5 14.5l-51 51"/></svg>
+          <p class="p" style="font-size:19px">Public agencies, development programmes and enterprise teams across four continents.</p>
+        </div>
+      </div>
+      <div class="about-r">
+        <div class="shapes" aria-hidden="true"><i></i><i></i></div>
+        <div class="stats">
+          <div class="stat f rv"><span class="n" data-count="170" data-suf="+">170+</span><div class="t"><b>Projects Delivered</b><span>Custom software, GIS and MEL platforms shipped across sectors.</span></div></div>
+          <div class="stat rv" style="--d:.08s"><span class="n" data-count="60" data-suf="+">60+</span><div class="t"><b>Clients Worldwide</b><span>Public agencies, NGOs and enterprises who keep coming back.</span></div></div>
+          <div class="stat rv" style="--d:.16s"><span class="n" data-count="5" data-suf="">5</span><div class="t"><b>Continents Served</b><span>Teams delivering in Asia, Africa, Europe, the Americas and Oceania.</span></div></div>
+          <div class="stat f rv" style="--d:.24s"><span class="n" data-count="12" data-suf="+">12+</span><div class="t"><b>Years of Delivery</b><span>More than a decade of sustained international engagements.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="wide rv"><img data-par src="https://images.unsplash.com/photo-1639313521811-fdfb1c040ddb?w=2000&q=80&auto=format&fit=crop" alt="Operations control room with monitoring desks" loading="lazy"></figure>
+
+    <div class="sl-head" style="justify-content:flex-end">
+      <div class="pager"><button class="circ" type="button" id="p-prev" aria-label="Previous practice"><svg><use href="#arl"/></svg></button><span><span id="p-n">1</span> / 4</span><button class="circ" type="button" id="p-next" aria-label="Next practice"><svg><use href="#arr"/></svg></button></div>
+    </div>
+    <div class="sl rv">
+      <span class="glow" aria-hidden="true"></span>
+      <div class="sl-track" id="p-track">
+        <article class="pc"><span class="no">01</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3Z M9 3v15 M15 6v15"/></svg><h3 class="h3">GIS &amp; Spatial</h3><p>Mapping platforms, spatial analytics and geodata pipelines for national agencies and state governments.</p><div class="tags"><span class="pill">World Bank</span><span class="pill">Virginia State Government</span><span class="pill">GeoTerraImage SA</span></div>
+          <svg class="wv" viewBox="0 0 300 200" fill="none" stroke="currentColor" stroke-width=".7" aria-hidden="true"><path d="M0 200C80 170 120 120 180 110S280 60 300 0M20 200C95 172 132 126 190 116S286 70 300 16M40 200C110 174 144 132 200 122S292 80 300 32M60 200C125 176 156 138 210 128S298 90 300 48M80 200C140 178 168 144 220 134S300 100 300 64"/></svg></article>
+        <article class="pc"><span class="no">02</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2Z M9 14l2 2 4-4"/></svg><h3 class="h3">MEL &amp; Field Data</h3><p>Offline-first field data collection and monitoring systems that track programme impact at scale.</p><div class="tags"><span class="pill">BRAC International</span><span class="pill">7 African countries</span><span class="pill">1M+ beneficiaries</span></div></article>
+        <article class="pc"><span class="no">03</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18 M7 16v-5 M12 16V8 M17 16v-3"/></svg><h3 class="h3">BI &amp; Analytics</h3><p>Dashboards, data warehouses and reporting that turn scattered data into clear decisions.</p><div class="tags"><span class="pill">Gapminder</span><span class="pill">Brunei Government</span><span class="pill">Ezispeak Australia</span></div></article>
+        <article class="pc"><span class="no">04</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z M22 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8"/></svg><h3 class="h3">Team Augmentation</h3><p>Dedicated engineers who embed with your team for multi-year product delivery.</p><div class="tags"><span class="pill">IQVIA</span><span class="pill">30+ engineers</span><span class="pill">7-year engagement</span></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHO WE BUILD FOR ======================= -->
+<section class="sec" id="audience" style="padding-top:0">
+  <span class="glow" aria-hidden="true" style="width:520px;height:520px;left:-260px;top:10%;opacity:.14"></span>
+  <div class="in">
+    <div class="xp">
+      <div class="xp-img rv">
+        <div class="fr"><img src="https://images.unsplash.com/photo-1517405404692-6eddc8fb975f?w=1200&q=80&auto=format&fit=crop" alt="Aerial view of patterned farmland" loading="lazy"></div>
+        <a class="seal" href="#contact" aria-label="Talk to an engineer">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="sp" d="M60,60 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs><text textLength="300" lengthAdjust="spacingAndGlyphs"><textPath href="#sp" textLength="300" lengthAdjust="spacingAndGlyphs">STREAMS TECH · SINCE 2012 · TALK TO AN ENGINEER ·</textPath></text></svg>
+          <i><img src="assets/media/stl-logo-icon.png" alt=""></i>
+        </a>
+      </div>
+      <div class="xp-r">
+        <span class="lb rv">Who we build for</span>
+        <h2 class="h2 lines">Built for teams delivering where it matters</h2>
+        <p class="p rv">Different teams, for different reasons each with a direct path through our services.</p>
+        <div class="xp-list rv">
+          <svg viewBox="0 0 140 140" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8 8H132V132H104V56L28 132 8 112 84 36H8Z"/></svg>
+          <ul>
+            <li><div><b>GIS Firms &amp; Environmental Consultancies</b><p>Agencies building spatial platforms needing reliable senior engineering capacity.</p><a class="ln" href="#engagement">Explore GIS Solutions <svg><use href="#ar"/></svg></a></div></li>
+            <li><div><b>International NGOs &amp; Development Organizations</b><p>Organizations running field programmes across Africa and Asia needing GIS-enabled M&amp;E systems, offline tools.</p><a class="ln" href="#engagement">Explore MEL solutions <svg><use href="#ar"/></svg></a></div></li>
+            <li><div><b>Government &amp; Commercial Clients</b><p>Municipalities, utilities, and commercial firms needing bespoke spatial applications, BI dashboards.</p><a class="ln" href="#work">See our case studies <svg><use href="#ar"/></svg></a></div></li>
+            <li><div><b>Software Teams &amp; Enterprises</b><p>Technology companies needing senior engineers embedded in their team.</p><a class="ln" href="#engagement">Explore team augmentation <svg><use href="#ar"/></svg></a></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= OUR SERVICES ======================= -->
+<section class="sec" id="services" style="padding-top:0">
+  <div class="in">
+    <div class="sv-head">
+      <div style="display:flex;flex-direction:column;gap:24px"><span class="lb rv">Our services</span><h2 class="h2 lines">Deep domain expertise delivered end to end</h2></div>
+      <p class="p rv">Whether you need engineers in your team, a full platform built, or a white-label delivery partner.</p>
+    </div>
+    <div class="sv-grid rv" id="sv-grid"></div>
+  </div>
+</section>
+
+<!-- ======================= ENGAGEMENT MODELS ======================= -->
+<section class="sec" id="engagement" style="padding-top:0">
+  <div class="in">
+    <div class="hw">
+      <div class="hw-l">
+        <span class="lb rv">Engagement Models</span>
+        <h2 class="h2 lines">Choose your engagement model</h2>
+        <p class="p rv">Whether you need engineers in your team, a full platform built, or a white-label delivery partner - we have a model that fits.</p>
+      </div>
+      <div class="hw-img rv"><img src="https://images.unsplash.com/photo-1551135049-8a33b5883817?w=1200&q=80&auto=format&fit=crop" alt="Team reviewing documents together at a table" loading="lazy"></div>
+      <div class="panel rv">
+        <div class="steps" role="tablist" aria-label="Engagement models" id="steps"></div>
+        <div class="det" id="det"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TESTIMONIALS ======================= -->
+<section class="sec" id="voices" style="padding-top:0">
+  <div class="in">
+    <div class="ts">
+      <div class="ts-l">
+        <span class="lb rv">Client experiences</span>
+        <h2 class="h2 lines">Experiences that speak for themselves</h2>
+        <p class="p rv">Hear from the programme leads, CTOs and founders who have trusted us with their most important platforms.</p>
+        <div class="avs rv" role="tablist" aria-label="Choose testimonial" id="avs"></div>
+        <div class="pager rv"><button class="circ" type="button" id="t-prev" aria-label="Previous testimonial"><svg><use href="#arl"/></svg></button><span><span id="t-n">01</span> / 09</span><button class="circ" type="button" id="t-next" aria-label="Next testimonial"><svg><use href="#arr"/></svg></button></div>
+      </div>
+      <div class="qwrap rv" id="quotes" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SUCCESS STORIES ======================= -->
+<section class="sec" id="work" style="padding-top:0">
+  <span class="glow" aria-hidden="true" style="width:560px;height:560px;left:-300px;top:-120px;opacity:.14"></span>
+  <div class="in">
+    <span class="lb rv" style="margin-bottom:30px">Success stories</span>
+    <h2 class="giant wk-h lines" aria-label="Complex requirements, production-ready software">
+      <span class="l" aria-hidden="true"><span style="--i:0">Complex requirements,</span></span>
+      <span class="l" aria-hidden="true"><span style="--i:1"><span class="cnt">(07)</span>production-ready software</span></span>
+    </h2>
+    <div class="wk-intro rv">
+      <p class="p" style="font-size:19px">National platforms, multi-country programmes, and municipal systems running in the field today.</p>
+      <a class="pill" href="#work" style="font-weight:600">Read the full case studies</a>
+    </div>
+    <div class="works" id="works"></div>
+  </div>
+</section>
+
+<!-- ======================= CLIENTS ======================= -->
+<section class="sec" id="clients" style="padding-top:0">
+  <div class="in">
+    <div class="cl-head">
+      <div style="display:flex;flex-direction:column;gap:24px"><span class="lb rv">Our clients</span><h2 class="h2 lines">Trusted by Leading Clients</h2></div>
+      <p class="p rv">Building lasting partnerships with enterprises across industries and geographies.</p>
+    </div>
+    <ul class="logos rv" id="logos"></ul>
+  </div>
+</section>
+
+<!-- ======================= TECHNOLOGY STACK ======================= -->
+<section class="sec dark" id="stack">
+  <div class="in">
+    <div class="tk-head">
+      <span class="lb rv">Technology stack</span>
+      <h2 class="h2 lines">Organised by domain, not a mile wide</h2>
+    </div>
+    <div class="tk">
+      <div class="tk-card rv">
+        <p>Four domains, one senior team. The tools below are the ones we run in production — not a list of everything we have heard of.</p>
+        <img src="assets/media/stl-logo-icon.png" alt="" aria-hidden="true">
+      </div>
+      <ul class="tk-rows" id="tk-rows"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INDUSTRIES ======================= -->
+<section class="sec" id="industries">
+  <div class="in">
+    <div class="id-head">
+      <div style="display:flex;flex-direction:column;gap:24px"><span class="lb rv">Industries</span><h2 class="h2 lines">Domain-informed engineering, measurable in outcomes</h2></div>
+      <p class="p rv">From national land agencies to farm-level IoT and traceability from field to market.</p>
+    </div>
+    <ul class="il" id="il"></ul>
+  </div>
+  <div class="float" id="float" aria-hidden="true"></div>
+</section>
+
+<!-- ======================= WHY TEAMS CHOOSE ======================= -->
+<section class="sec dark" id="reasons">
+  <div class="qa-bg" aria-hidden="true"><img src="https://images.unsplash.com/photo-1711214571331-2837c944009f?w=1400&q=70&auto=format&fit=crop" alt="" loading="lazy"></div>
+  <div class="in">
+    <div class="qa">
+      <div class="qa-l">
+        <span class="lb rv">Why teams choose Streams Tech</span>
+        <h2 class="rv" aria-label="Five reasons clients stay for years">Why Teams Choose <br><img src="assets/media/stl-logo-icon.png" alt="" aria-hidden="true">Streams Tech</h2>
+      </div>
+      <div class="acc rv" id="acc"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA ======================= -->
+<section id="contact" aria-label="Let's talk">
+  <div class="ribbons" aria-hidden="true">
+    <div class="rb b"><div class="row" id="rb2"></div></div>
+    <div class="rb a"><div class="row" id="rb1"></div></div>
+  </div>
+  <div class="in cta">
+    <span class="lb rv">Let's talk</span>
+    <h2 class="giant lines" aria-label="Looking for an engineering partner you can rely on?">
+      <span class="l" aria-hidden="true"><span style="--i:0">Looking for an</span></span>
+      <span class="l" aria-hidden="true"><span style="--i:1">engineering partner</span></span>
+      <span class="l" aria-hidden="true"><span style="--i:2"><span class="mk"><img src="assets/media/stl-logo-icon.png" alt=""></span><span class="box">you can rely on?</span></span></span>
+    </h2>
+    <div class="cta-row rv">
+      <p class="p">Whether you're building from scratch, modernising, or extending your team.</p>
+      <div class="acts">
+        <a class="btn" href="mailto:contact@streamstech.com">Let's Talk <svg><use href="#ar"/></svg></a>
+        <a class="mail" href="mailto:contact@streamstech.com">or email contact@streamstech.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="shots" aria-hidden="true"><div class="row" id="shots"></div></div>
+</section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="ft">
+  <div class="ft-g">
+    <div class="ft-brand">
+      <img src="assets/streamstech-logo.webp" alt="Streams Tech">
+      <p>An engineering partner for national GIS platforms, development programmes, and enterprise teams.</p>
+      <h4 style="margin:10px 0 -8px">Offices</h4>
+      <div class="adr">161 Fort Evans Rd NE, Suite 325, Leesburg, VA 20176, U.S.A.<a href="tel:+17036654700">+1 703 665 4700</a></div>
+      <div class="adr">House 16, Suite F4, Road 23, Block B, Banani, Dhaka 1213, Bangladesh<a href="tel:+880255033794">+880 2 5503 3794</a></div>
+    </div>
+    <div><h4>Data &amp; Intelligence</h4><ul><li><a href="#services">Geographic Information System</a></li><li><a href="#services">Monitoring, Evaluation &amp; Learning</a></li><li><a href="#services">Business Intelligence</a></li><li><a href="#services">AI / ML Services</a><span class="new">New</span></li><li><a href="#services">Environmental Intelligence</a></li></ul>
+      <h4 style="margin-top:34px">Cloud &amp; Engineering</h4><ul><li><a href="#services">Cloud Solutions</a></li><li><a href="#services">Enterprise Application Development</a></li><li><a href="#services">Team Augmentation</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#deliver">About Us</a></li><li><a href="#audience">Who We Build For</a></li><li><a href="#work">Success Stories</a></li><li><a href="#stack">Technology Stack</a></li><li><a href="#engagement">Engagement Models</a></li><li><a href="#audience">Careers</a></li></ul></div>
+    <div><h4>Get in touch</h4><ul><li><a href="#contact">Contact Us</a></li><li><a href="mailto:contact@streamstech.com">contact@streamstech.com</a></li><li><a href="#contact">Request a Demo</a></li><li><a href="#contact">Talk to an Engineer</a></li></ul></div>
+    <div class="ft-news">
+      <p class="lbl"><label for="f-email">Start a conversation</label></p>
+      <form id="f-form" novalidate><input id="f-email" type="email" placeholder="you@organisation.org" autocomplete="email"><button type="submit">Get in Touch <svg><use href="#arr"/></svg></button></form>
+      <span class="or">Or email <a href="mailto:contact@streamstech.com">contact@streamstech.com</a></span>
+      <div class="soc">
+        <a href="#top" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="#top" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4v16h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-8.5c0-2.03-.04-4.64-2.83-4.64-2.83 0-3.27 2.2-3.27 4.5V24h-4V8z"/></svg></a>
+        <a href="#top" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.2 2h3.4l-7.4 8.5L23 22h-6.8l-5.3-7-6.1 7H1.4l7.9-9.1L1 2h7l4.8 6.4L18.2 2zm-1.2 18h1.9L7.1 3.9H5.1L17 20z"/></svg></a>
+        <a href="#top" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-aw">
+    <p>Streams Tech is ISO 9001:2015 and ISO 27001:2022 certified and an ESRI Partner Network Bronze member. Our quality and information-security practices are audited to international standards, so your data and delivery are protected end to end.</p>
+    <ul>
+      <li><span class="im"><img src="assets/awards/iso-9001.webp" alt="ISO 9001:2015 Certified Company"></span><span>ISO 9001:2015 Certified Company</span></li>
+      <li><span class="im"><img src="assets/awards/iso-27001.webp" alt="ISO 27001:2022 Certified Company"></span><span>ISO 27001:2022 Certified Company</span></li>
+      <li><span class="im"><img src="assets/awards/esri-gis-impact.webp" alt="ESRI South Asia GIS Impact Award 2020"></span><span>ESRI South Asia GIS Impact Award 2020</span></li>
+      <li><span class="im"><img class="w" src="assets/awards/esri-partner.webp" alt="ESRI Partner Network Bronze"></span><span>ESRI Partner Network Bronze</span></li>
+      <li><span class="im"><img class="w" src="assets/awards/nasa-space-apps.webp" alt="Global Nominee, NASA Space Apps 2015"></span><span>Global Nominee, NASA Space Apps 2015</span></li>
+    </ul>
+  </div>
+  <div class="ft-word" aria-hidden="true">Streams Tech</div>
+  <div class="ft-bot">© 2026 Streams Tech, Inc. All rights reserved</div>
+  <a class="totop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+</footer>
+
+<!-- ======================= CHAT ======================= -->
+<button class="chat-l" id="chat-l" type="button" aria-expanded="false" aria-controls="chat"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.2L4 21l1.8-5.4A8 8 0 1 1 21 12Z"/></svg></i>Ask StreamsTech</button>
+<section class="chat" id="chat" role="dialog" aria-label="Streams Assistance chat" aria-hidden="true">
+  <div class="chat-h"><b><img src="assets/media/stl-logo-icon.png" alt="">Ask StreamsTech</b><button type="button" id="chat-x" aria-label="Close chat"><svg><use href="#x"/></svg></button></div>
+  <div class="chat-b" id="chat-b" aria-live="polite"></div>
+  <form class="chat-f" id="chat-f"><input id="chat-i" type="text" aria-label="Your message" autocomplete="off"><button type="submit" aria-label="Send"><svg><use href="#arr"/></svg></button></form>
+</section>
+
+<script>
+(() => {
+"use strict";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const U = (id, w) => "https://images.unsplash.com/" + id + "?w=" + w + "&q=80&auto=format&fit=crop";
+const AR = '<svg><use href="#ar"/></svg>';
+const I = (d) => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + d + '"/></svg>';
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- content (verbatim from the provided homepage copy) ---------- */
+const SERVICES = [
+  { n: "01", title: "Geographic Information System", body: "Custom GIS applications, PostGIS and GeoServer backends, Leaflet and Mapbox frontends, offline-first field tools.", ic: "M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3Z M9 3v15 M15 6v15" },
+  { n: "02", title: "Monitoring, Evaluation & Learning", body: "End-to-end MEL platforms, offline-first mobile data collection, beneficiary tracking, indicator dashboards.", ic: "M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2Z M9 14l2 2 4-4" },
+  { n: "03", title: "Team Augmentation", body: "Senior engineers embedded on demand: GIS specialists, .NET, Angular, Python, and React.", ic: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z M22 21v-2a4 4 0 0 0-3-3.9 M16 3.1a4 4 0 0 1 0 7.8" },
+  { n: "04", title: "Business Intelligence", body: "Power BI, Apache Superset, custom dashboards; data pipelines and KPI reporting for government and NGOs.", ic: "M3 3v18h18 M7 16v-5 M12 16V8 M17 16v-3" },
+  { n: "05", title: "Enterprise App Development", body: "Full-stack .NET Core, Python, and Node.js backends with Angular and React frontends.", ic: "M16 18l6-6-6-6 M8 6l-6 6 6 6" },
+  { n: "06", title: "Cloud Solutions", body: "AWS-hosted GIS and MEL platforms, cloud-native architecture, legacy modernisation, scalable DevOps.", ic: "M17.5 19H7a5 5 0 0 1-.9-9.9A7 7 0 0 1 19.6 11 4 4 0 0 1 17.5 19Z" },
+  { n: "07", title: "AI & Machine Learning", body: "Applied ML for spatial analysis, satellite change detection, MEL data intelligence, predictive analytics.", ic: "M9 2v3 M15 2v3 M9 19v3 M15 19v3 M2 9h3 M2 15h3 M19 9h3 M19 15h3 M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z M9 9h6v6H9Z" },
+  { n: "08", title: "Environmental Intelligence", body: "SWMM-based stormwater modelling, flood risk, water quality, and climate resilience platforms.", ic: "M12 2.7c3.3 3.8 6 7.2 6 10.3a6 6 0 0 1-12 0c0-3.1 2.7-6.5 6-10.3Z" }
+];
+
+const MODELS = [
+  { n: "01", tag: "Most Popular Right Now", title: "Augment Your Team", body: "Senior engineers embedded directly in your team in your tools, repositories, and communication channels. GIS specialists, .NET, Python, Angular, React.", f: [["Full NDA + contract entity", "Signed before kickoff, US entity on the paper."], ["Onboarded within 2 weeks", "Engineers in your tools inside a sprint."]], ic: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" },
+  { n: "02", tag: "For Agencies", title: "White-Label Delivery Partner", body: "You win the contract, we deliver it under your brand. No direct client contact, complete delivery accountability.", f: [["Full IP transfer", "Everything we build is yours outright."], ["Relationships 5+ years", "Most partners stay well past the first contract."]], ic: "M11 17l2 2a1 1 0 1 0 3-3 M14 14l2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5 5 0 0 1 6.1-.8l.5.3a2 2 0 0 0 1.4.3L21 4 M21 3l1 11h-2 M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3 M3 4h8" },
+  { n: "03", tag: "For Direct Clients", title: "Build From Scratch", body: "End-to-end delivery of GIS platforms, MEL systems, enterprise applications, and environmental intelligence tools. We own the delivery from architecture through deployment and handover.", f: [["Fixed scope or agile", "Flexible engagement that fits your project."], ["Architecture → deploy → support", "We deliver, you scale. We support, you succeed."]], ic: "M12 2 2 7l10 5 10-5-10-5Z M2 17l10 5 10-5 M2 12l10 5 10-5" },
+  { n: "04", tag: "For Existing Platforms", title: "Modernise & Extend", body: "Upgrade legacy systems, migrate data pipelines, extend existing platforms. We integrate into your current architecture and improve it without disrupting live operations.", f: [["Codebase audit included", "We map what exists before touching it."], ["Phased, no disruption", "Shipped in stages, live systems stay up."]], ic: "M22 7l-8.5 8.5-5-5L2 17 M16 7h6v6" }
+];
+
+const TESTI = [
+  { name: "Scott Forsyth", role: "CTO, Dynamic Web North America", photo: "assets/testimonials/scott-forsyth.jpg", quote: "I'm very happy to provide this heartfelt testimonial for Streams Tech and their exceptional work in Power BI, SQL Server, and data analytics for our company, Dynamic Web. Their team has expertly created multiple Power BI dashboards, set up SQL Server Reporting Services reports, and provided advanced technical solutions, always delivering the right fit for our needs. We're thankful for their continued partnership." },
+  { name: "Steven Johnstone", role: "Owner & COO, Ask'd — South Africa", photo: "assets/testimonials/steven-johnstone.png", quote: "Streams Tech has been a game changer for Askd, a market research company in South Africa. Since 2019, their team has provided excellent services, helping us enrich our clients' data and analytics. I highly recommend Streams Tech for their transformative solutions that will elevate your business." },
+  { name: "Dharmik Seth", role: "Director, ST Advisory", photo: "assets/testimonials/dharmik-seth.png", quote: "We've been working with Streams Tech for several years on data analytics and web development projects in Malaysia and Brunei. The team has been great to partner with. Their excellent communication and timely responses have ensured successful project completion. We're excited to continue this partnership on future projects." },
+  { name: "Giovanni Basso", role: "International Business Manager, Philmark", photo: "assets/testimonials/giovanni-basso.jpg", quote: "The contribution Streams Tech provide has been remarkable in the implementation of SQL solutions, SQL Server, administration, and Power BI. Their contribution has not only improved our data management, but also made us more competitive. Thank you, Streams Tech." },
+  { name: "Garron Lipschitz", role: "CEO, Confidence Club", photo: "assets/testimonials/garron-lipschitz.jpg", quote: "We engaged Streams Tech to build us a data pipeline and PowerBI dashboard and were very impressed with their depth of knowledge and thoughtful, considered approach at all times. As a result, will continue to engage them for our future needs." },
+  { name: "Alamgir Hossain Patwary", role: "MIS & GIS Manager, CARE Bangladesh", photo: "assets/testimonials/alamgir-patwary.jpg", quote: "STREAM has been used in the SHOUHARDO III project since 2017. Its dynamism and adaptability make it easy to use across web and mobile. Around 1 million beneficiaries are served, monitored, evaluated, and reported through STREAM." },
+  { name: "S S Bakth Hindole", role: "Deputy Director M&E, Helen Keller International", photo: "assets/testimonials/bakth-hindole.jpg", quote: "iSTREAM is the core tool for SAPLING, transforming census, monitoring, distribution, and evaluation. It enables data collection even in hard-to-reach Bandarban, saving time and effort while adding greater value to daily M&E operations." },
+  { name: "Ravi Kumar Raju Kalidindi", role: "Client Partner & CEO, Application Objects Inc.", photo: "assets/testimonials/ravi-kalidindi.jpg", quote: "Streams Tech, has been our offshore partner for close to 5+ years now. They are a professional IT service provider with a good mix of Technical skills combined with good delivery management support. Team was/is able to onboard skilled staff on all types of development projects and for a wide range of functional needs. They have been very flexible, accessible, honest and prompt with their service and communication. We are so confident of their skills and service that we put them in direct contact with our client management team on a few key programs. Team works very cohesively and is well managed offshore. Not but the least these services come at a reasonable cost which make this offshore model more enticing for our clients. We are happy and recommend their services to other partner companies." },
+  { name: "Tasrin Jahan Shampa", role: "Head of Technology, BRAC International", photo: "assets/testimonials/tasrin-shampa.png", quote: "In our work with Streams Tech, they demonstrated a strong understanding of complex development programme needs and translated them into a flexible, scalable, and user-centric digital platform. We value Streams Tech as a reliable partner and appreciate their contribution to strengthening our digital ecosystem and enabling data-driven programme management at scale." }
+];
+
+const STORIES = [
+  { n: "01", client: "URP", type: "City authorities", title: "URP GIS — Advanced City-Scale Urban Resilience", role: "Urban Resilience Project, Dhaka & Sylhet", outcome: "Flood and fire risk mapped for two cities so authorities can plan resilient infrastructure", metric: "2", cap: "Cities on one risk platform", scope: "Flood and fire risk GIS platform for Dhaka and Sylhet. Combines hazard layers, exposure data, and risk modelling to help city authorities plan resilient infrastructure and prioritise interventions.", stack: ["GIS", "Risk Modelling", "Web"], funder: "", impact: ["Hazard, exposure and risk layers in one view", "Intervention prioritisation for city planners", "Covers Dhaka and Sylhet city areas"], photo: "photo-1674801378927-406edef8f3a0", alt: "Sunset over Dhaka's skyline", shot: "assets/projects/urp-gis-portal.jpg" },
+  { n: "02", client: "LGED", type: "Government", title: "LGED GIS Portal for Project Planning", role: "Bangladesh's largest government engineering agency", outcome: "40+ GIS layers for nationwide project planning, shipped in 3.5 months on budget", metric: "40+", cap: "GIS layers, nationwide", scope: "Nationwide web-based GIS decision-support platform for LGED, Bangladesh's largest government engineering agency. Delivers 40+ GIS layers, dynamic road analysis, duplicate detection, and population insights — shipped in 3.5 months, on budget.", stack: ["PostGIS", "GeoServer", "AngularJS", "ASP.NET MVC", "Redis"], funder: "", impact: ["40+ GIS layers with dynamic road analysis", "Duplicate project detection and population insights", "Shipped in 3.5 months, on budget"], photo: "photo-1672561924208-7762120e7077", alt: "Rural Bangladesh landscape with fields and a house", shot: "assets/projects/proj-02.webp" },
+  { n: "03", client: "BRAC International", type: "International NGO", title: "BRAC International — BInsight Platform", role: "AIM programme, 7 African countries", outcome: "M&E evidence at 1M+ beneficiary scale across 7 African countries, offline-first", metric: "1M+", cap: "Beneficiaries at scale", scope: "GIS-enabled monitoring and evaluation platform for BRAC's AIM programme across 7 African countries. Offline-first field data collection, results dashboards, and evidence for programme decisions at 1M+ beneficiary scale.", stack: ["PostGIS", "Angular", "Offline-first", "AWS"], funder: "BRAC · Mastercard Foundation", impact: ["Offline-first field data collection", "Results dashboards across 7 countries", "Evidence at 1M+ beneficiary scale"], photo: "photo-1787155124394-686b77b2e7bc", alt: "Community gathering seated outdoors in rural Africa", shot: "assets/projects/proj-03.webp" },
+  { n: "04", client: "Dhaka North City Corporation", type: "Municipal", title: "IMIS — Integrated Municipal Information System", role: "Integrated Municipal Information System", outcome: "Service requests, digital payments and GIS assets in one citywide municipal platform", metric: "Citywide", cap: "Inclusive sanitation coverage", scope: "Hybrid web and mobile platform for municipal service delivery and citywide inclusive sanitation. Integrates service requests, digital payments, and GIS-backed asset tracking for municipal operations.", stack: ["GIS", "Hybrid Web & Mobile", "Digital Payments", "Cloud"], funder: "", impact: ["Service requests and digital payments integrated", "GIS-backed asset tracking", "Hybrid web and mobile for field operations"], photo: "photo-1633788989414-8a8d43ff985e", alt: "Busy city street in Dhaka", shot: "assets/projects/proj-04.webp" },
+  { n: "05", client: "Bangladesh Computer Council", type: "Government", title: "GeoDASH — National Open GIS Data Platform", role: "National open GIS data platform, phase two", outcome: "A national open GIS data platform shared across every government agency", metric: "National", cap: "Open GIS data, all agencies", scope: "Second-phase development of Bangladesh's national open GIS data platform for the Bangladesh Computer Council — publishing, cataloguing, and sharing geospatial data across government agencies.", stack: ["GeoNode", "GeoServer", "PostgreSQL"], funder: "World Bank", impact: ["Publishing and cataloguing of national geodata", "Cross-agency data sharing", "Second-phase platform development"], photo: "photo-1752731904238-37ca976fd275", alt: "Dense city seen from directly above", shot: "assets/projects/proj-05.webp" },
+  { n: "06", client: "PKSF", type: "Rural development", title: "PKSF — Rural WASH for HCD Project", role: "Rural WASH for HCD Project", outcome: "Rural WASH interventions tracked from field level to national dashboards", metric: "Field→National", cap: "One monitoring chain", scope: "Cloud-based GIS and GPS monitoring and evaluation system for PKSF's rural WASH programme — tracking water, sanitation, and hygiene interventions from field level to national dashboards.", stack: ["Angular", "Spring Boot", "PostGIS", "GeoServer"], funder: "IDA-AIIB", impact: ["GPS-verified field monitoring", "Water, sanitation and hygiene indicators in one system", "National dashboards from cloud-hosted data"], photo: "photo-1627491922812-30d9e485c0fc", alt: "Boats on a river in rural Bangladesh", shot: "assets/projects/proj-06.webp" },
+  { n: "07", client: "CARE Bangladesh", type: "International NGO", title: "CARE STREAM — Automated M&E System", role: "CARE STREAM automated M&E system", outcome: "Donor-ready M&E analytics in production for CARE Bangladesh and partner NGOs", metric: "Live", cap: "In production across NGO partners", scope: "Automated monitoring and evaluation system in production use by CARE Bangladesh and other NGO partners — streamlining indicator tracking, field reporting, and donor-ready analytics.", stack: ["React", "Node.js", "PostgreSQL + PostGIS"], funder: "USAID", impact: ["Automated indicator tracking", "Field reporting streamlined", "Donor-ready analytics in production"], photo: "photo-1638653051753-c51da9e9e338", alt: "Women and children from a community in Bangladesh", shot: "assets/media/care-1-356cf4d4.webp" }
+];
+
+const STACK = [
+  { k: "GIS & Spatial", items: ["PostGIS", "GeoServer", "QGIS", "ArcGIS / ESRI", "Leaflet", "Mapbox GL JS", "OpenLayers", "GDAL / OGR", "OpenStreetMap", "Google Maps API", "Sentinel-2 / Satellite ML"] },
+  { k: "Backend & APIs", items: ["ASP.NET Core", "Python", "Node.js", "Django / FastAPI", ".NET 8", "REST APIs", "GraphQL", "Microservices", "SignalR", "gRPC"] },
+  { k: "Frontend & Mobile", items: ["Angular", "React", "TypeScript", "Vue.js", "React Native", "Progressive Web Apps", "Offline-first architecture", "KoBoToolbox", "ODK"] },
+  { k: "Data & Analytics", items: ["PostgreSQL", "Power BI", "Apache Superset", "SQL Server", "Pandas", "NumPy", "AWS Redshift", "Entity Framework", "SSRS"] },
+  { k: "Cloud & DevOps", items: ["AWS EC2", "RDS", "S3", "Lambda", "Docker", "Kubernetes", "GitHub Actions", "Azure DevOps", "CI/CD pipelines", "Terraform", "NGINX"] }
+];
+
+const INDUSTRIES = [
+  { t: "Government", h: "Secure systems for smarter governance.", d: "Enabling governments with secure digital solutions and GIS-driven systems for smarter governance.", img: "photo-1667849921481-9e13c239ee3d", alt: "Government building with columns" },
+  { t: "Utilities", h: "Asset intelligence at network scale.", d: "Modernising utilities with asset intelligence, outage analytics, and customer self-service portals.", img: "photo-1610028290816-5d937a395a49", alt: "Electricity pylon silhouetted at sunset" },
+  { t: "Multilateral Organizations", h: "Evidence that drives programme decisions.", d: "Empowering programmes with M&E platforms, results dashboards, and evidence-based decision support.", img: "photo-1517048676732-d65bc937f952", alt: "Team meeting around a table" },
+  { t: "Agriculture", h: "Traceable from field to market.", d: "Advancing ag operations with IoT, farm analytics, and traceability from field to market.", img: "photo-1615811361523-6bd03d7748e7", alt: "Tractor working a green field" },
+  { t: "Academia and Research", h: "Open data, faster discovery.", d: "Accelerating discovery with data repositories, research workflows, and open analytics portals.", img: "photo-1718327453695-4d32b94c90a4", alt: "Large library interior" },
+  { t: "Healthcare", h: "Compliant systems for care delivery.", d: "Strengthening care delivery with compliant data systems, patient flows, and clinical analytics.", img: "photo-1777269749032-d8d458ae594d", alt: "Clean hospital corridor" },
+  { t: "Transportation", h: "Networks that run on real-time data.", d: "Optimising networks with routing intelligence, fleet telemetry, and real-time service performance.", img: "photo-1578575437130-527eed3abbec", alt: "Cargo ships docked beside port cranes" },
+  { t: "Land Development Agencies", h: "Permitting and mapping in one workflow.", d: "Streamlining land services with permitting workflows, GIS mapping, and project oversight tools.", img: "photo-1723107638733-16ef49e5d4de", alt: "Aerial view of a construction site with a crane" },
+  { t: "Private Organizations", h: "Custom software that scales with growth.", d: "Scaling growth with custom applications, seamless integrations, and actionable business intelligence.", img: "photo-1674981208693-de5a9c4c4f44", alt: "Modern office tower" },
+  { t: "Non-profits", h: "Field data to donor report, transparently.", d: "Driving impact with field data collection, M&E systems, and transparent donor reporting.", img: "photo-1758599668429-121d54188b9c", alt: "Volunteers working together outdoors" }
+];
+
+const REASONS = [
+  { n: "01", title: "Specialist depth in four domains", body: "GIS platforms, MEL systems, BI & analytics, and team augmentation — not a generic shop." },
+  { n: "02", title: "Stack-agnostic delivery", body: ".NET or Python backends, Angular or React frontends. We work in your environment." },
+  { n: "03", title: "US-registered, globally accountable", body: "A US legal entity with the senior engineering team in Dhaka: enforceable contracts, full IP transfer." },
+  { n: "04", title: "Long-term partnerships", body: "Our longest engagements run three to five years. We embed and stay rather than act as a project vendor." },
+  { n: "05", title: "Field-tested engineering", body: "Offline-first apps, low-bandwidth optimisation, and GPS tools built for where clients actually operate." }
+];
+
+const LOGOS = ["clients/client-01.png","clients/client-02.png","clients/client-03.png","clients/client-04.png","clients/client-05.png","clients/client-06.png","clients/client-07.png","clients/client-08.png","clients/client-09.png","clients/client-10.png","clients/client-11.png","clients/client-12.png","clients/client-13.png","clients/client-14.png","media/tt.webp","media/syncro.webp","media/lged.webp","media/swisscontact.webp","media/snv.webp","media/pksf.webp","media/philmark.webp","media/nmodule.webp","media/nvrc.webp","media/mlg.webp","media/gfa.webp","media/helen.webp","media/hilger-1.webp","media/helvetas.webp","media/lb.webp","media/geoterra.webp","media/dynamic.webp","media/freebee-1.webp","media/ezis.webp","media/wasa.webp","media/du.webp","media/south-city.webp","media/railway-1.webp","media/artboard-1-copy-9.webp","media/artboard-1-copy-12.webp","clients/world-bank.svg"];
+const SHOTS = ["chatgpt-image-sep-23-2026-12-15-12-pm-f1262e19.jpg","chatgpt-image-sep-23-2026-12-08-45-pm-ff92fff7.png","lged-2-f77ad4c9.webp","care-1-356cf4d4.webp","pksf-c3775183.webp","bi-1-1-2-ad8666b2.webp","bi-2-ca8accf6.webp","bi-1-1-1-1-6f7133bb.webp","gis-urp-11-29eb6f54.webp","m9d0b4293088971f40cb53267fc68adf91545332238351.jpg","1-q-h86zvzmuov7lervno4aw.png","3.jpg","pepper-dashboard-uiux-design.webp","f6cda65a-13cf-4c3b-9c16-7e37797b350c.png"];
+
+/* ---------- services grid ---------- */
+$("#sv-grid").innerHTML = SERVICES.map((s) =>
+  '<article class="sv"><div class="top"><span class="ic">' + I(s.ic) + '</span><span class="tg">' + s.n + '</span></div><h3 class="h3">' + esc(s.title) + '</h3><p>' + esc(s.body) + '</p><a class="ln" href="#contact">View details ' + AR + '</a></article>'
+).join("");
+
+/* ---------- engagement: steps panel ---------- */
+(() => {
+  const steps = $("#steps"), det = $("#det");
+  steps.innerHTML = MODELS.map((m, i) =>
+    '<button class="st" type="button" role="tab" id="tab-' + i + '" aria-controls="pan-' + i + '" aria-selected="' + (i === 0) + '" tabindex="' + (i === 0 ? 0 : -1) + '"><span class="ci">' + I(m.ic) + '</span><span class="tg">' + esc(m.tag) + '</span><b>' + esc(m.title) + '</b></button>'
+  ).join("");
+  det.innerHTML = MODELS.map((m, i) =>
+    '<div role="tabpanel" id="pan-' + i + '" aria-labelledby="tab-' + i + '"' + (i === 0 ? ' class="on"' : ' aria-hidden="true"') + '><p>' + esc(m.body) + '</p><dl>' + m.f.map((x) => '<div><dt>' + esc(x[0]) + '</dt><dd>' + esc(x[1]) + '</dd></div>').join("") + '</dl></div>'
+  ).join("");
+  const tabs = $$(".st", steps), pans = $$("[role=tabpanel]", det);
+  const sel = (i, focus) => {
+    tabs.forEach((t, j) => { t.setAttribute("aria-selected", String(j === i)); t.tabIndex = j === i ? 0 : -1; });
+    pans.forEach((p, j) => { p.classList.toggle("on", j === i); p.setAttribute("aria-hidden", String(j !== i)); });
+    if (focus) tabs[i].focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => sel(i));
+    t.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); sel((i + 1) % tabs.length, true); }
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); sel((i - 1 + tabs.length) % tabs.length, true); }
+    });
+  });
+})();
+
+/* ---------- testimonials ---------- */
+(() => {
+  const star = '<svg><use href="#star"/></svg>';
+  $("#quotes").innerHTML = TESTI.map((t, i) =>
+    '<figure class="qc' + (i === 0 ? " on" : "") + '" id="q-' + i + '"' + (i === 0 ? "" : ' aria-hidden="true"') + '><div class="stars" aria-label="5 stars">' + star.repeat(5) + '</div><blockquote>“' + esc(t.quote) + '”</blockquote><figcaption class="who"><img src="' + esc(t.photo) + '" alt="" loading="lazy"><span><b>' + esc(t.name) + '</b><span>' + esc(t.role) + '</span></span></figcaption></figure>'
+  ).join("");
+  $("#avs").innerHTML = TESTI.map((t, i) =>
+    '<button type="button" role="tab" aria-selected="' + (i === 0) + '" aria-controls="q-' + i + '" aria-label="' + esc(t.name) + '"><img src="' + esc(t.photo) + '" alt="" loading="lazy"></button>'
+  ).join("");
+  const qs = $$(".qc"), avs = $$("#avs button"); let cur = 0;
+  const go = (i) => {
+    cur = (i + TESTI.length) % TESTI.length;
+    qs.forEach((q, j) => { q.classList.toggle("on", j === cur); q.setAttribute("aria-hidden", String(j !== cur)); });
+    avs.forEach((a, j) => a.setAttribute("aria-selected", String(j === cur)));
+    $("#t-n").textContent = String(cur + 1).padStart(2, "0");
+  };
+  avs.forEach((a, i) => a.addEventListener("click", () => go(i)));
+  $("#t-prev").addEventListener("click", () => go(cur - 1));
+  $("#t-next").addEventListener("click", () => go(cur + 1));
+})();
+
+/* ---------- success stories ---------- */
+$("#works").innerHTML = STORIES.map((s, i) =>
+  '<article class="wc rv" style="--d:' + (i % 2) * .08 + 's">'
+  + '<div class="im"><img src="' + U(s.photo, 1100) + '" alt="' + esc(s.alt) + '" loading="lazy">'
+  + '<figure class="shot"><img src="' + esc(s.shot) + '" alt="' + esc(s.title) + ' screenshot" loading="lazy"></figure>'
+  + '<div class="tgs"><span class="a">Case ' + s.n + ' / 07</span><span>' + esc(s.type) + '</span></div></div>'
+  + '<h3>' + esc(s.title) + '</h3>'
+  + '<p class="meta"><b>' + esc(s.client) + '</b> — ' + esc(s.role) + '</p>'
+  + '<blockquote>“' + esc(s.outcome) + '”</blockquote>'
+  + '<div class="mt"><span class="n">' + esc(s.metric) + '</span><span class="c">' + esc(s.cap) + '</span></div>'
+  + '<details><summary>Scope · Stack · Impact<i><svg><use href="#plus"/></svg></i></summary><dl>'
+  + '<dt>Scope</dt><dd>' + esc(s.scope) + '</dd>'
+  + '<dt>Stack</dt><dd><div class="ch">' + s.stack.map((t) => "<span>" + esc(t) + "</span>").join("") + '</div></dd>'
+  + (s.funder ? '<dt>Funder</dt><dd>' + esc(s.funder) + '</dd>' : "")
+  + '<dt>Impact</dt><dd><ul>' + s.impact.map((p) => "<li>" + esc(p) + "</li>").join("") + '</ul></dd>'
+  + '</dl></details></article>'
+).join("");
+
+/* ---------- clients ---------- */
+$("#logos").innerHTML = LOGOS.map((p) => '<li><img src="assets/' + p + '" alt="Client logo" loading="lazy"' + (p.endsWith(".svg") ? ' class="svg"' : "") + "></li>").join("");
+
+/* ---------- technology stack rows ---------- */
+$("#tk-rows").innerHTML = STACK.map((g) =>
+  '<li class="rv"><b>' + esc(g.k) + '</b><ul>' + g.items.map((t) => "<li>" + esc(t) + "</li>").join("") + '</ul><span class="c" aria-label="' + g.items.length + ' technologies">' + String(g.items.length).padStart(2, "0") + "</span></li>"
+).join("");
+
+/* ---------- industries list + cursor image ---------- */
+(() => {
+  const il = $("#il"), fl = $("#float");
+  il.innerHTML = INDUSTRIES.map((it, i) =>
+    '<li class="rv" data-i="' + i + '"><a class="ir" href="#contact"><span class="thumb"><img src="' + U(it.img, 300) + '" alt="' + esc(it.alt) + '" loading="lazy"></span><span class="no">' + String(i + 1).padStart(2, "0") + '</span><h3>' + esc(it.t) + '</h3><span class="tx"><b>' + esc(it.h) + '</b><span>' + esc(it.d) + '</span></span><span class="circ" aria-hidden="true"><svg><use href="#arr"/></svg></span></a></li>'
+  ).join("");
+  fl.innerHTML = INDUSTRIES.map((it) => '<img src="' + U(it.img, 700) + '" alt="" loading="lazy">').join("");
+  const imgs = $$("img", fl);
+  if (!matchMedia("(hover:hover) and (min-width:901px)").matches) return;
+  let x = 0, y = 0, tx = 0, ty = 0, raf = 0;
+  const loop = () => { x += (tx - x) * .16; y += (ty - y) * .16; fl.style.left = x + "px"; fl.style.top = y + "px"; raf = requestAnimationFrame(loop); };
+  $$("li", il).forEach((li) => {
+    li.addEventListener("pointerenter", (e) => { const i = +li.dataset.i; imgs.forEach((im, j) => im.classList.toggle("on", j === i)); tx = x = e.clientX; ty = y = e.clientY; fl.classList.add("on"); if (!raf) loop(); });
+    li.addEventListener("pointermove", (e) => { tx = e.clientX; ty = e.clientY; });
+  });
+  il.addEventListener("pointerleave", () => { fl.classList.remove("on"); cancelAnimationFrame(raf); raf = 0; });
+})();
+
+/* ---------- reasons accordion ---------- */
+$("#acc").innerHTML = REASONS.map((r, i) =>
+  "<details" + (i === 0 ? " open" : "") + '><summary><span class="n">' + r.n + '</span><h3>' + esc(r.title) + '</h3><i aria-hidden="true"></i></summary><p class="ab">' + esc(r.body) + "</p></details>"
+).join("");
+$$("#acc details").forEach((d) => d.addEventListener("toggle", () => { if (d.open) $$("#acc details").forEach((o) => { if (o !== d) o.open = false; }); }));
+
+/* ---------- ribbons + screenshot strip ---------- */
+(() => {
+  const seg = "<span>LET'S TALK <b>◆</b> GIS PLATFORMS <b>◆</b> ENTERPRISE APPLICATIONS <b>◆</b> DATA &amp; AI <b>◆</b> TEAM AUGMENTATION <b>◆</b> CLOUD &amp; DEVOPS <b>◆</b></span>";
+  $("#rb1").innerHTML = seg.repeat(4); $("#rb2").innerHTML = seg.repeat(4);
+  const sh = (f) => '<div class="sh"><img src="assets/media/' + f + '" alt="" loading="lazy"></div>';
+  $("#shots").innerHTML = SHOTS.map(sh).join("") + SHOTS.map(sh).join("");
+})();
+
+/* ---------- practices slider ---------- */
+(() => {
+  const tr = $("#p-track"), n = $("#p-n"), cards = $$(".pc", tr);
+  const step = () => cards[0].getBoundingClientRect().width;
+  const idx = () => Math.min(cards.length - 1, Math.round(tr.scrollLeft / step()));
+  $("#p-prev").addEventListener("click", () => tr.scrollBy({ left: -step(), behavior: "smooth" }));
+  $("#p-next").addEventListener("click", () => tr.scrollBy({ left: step(), behavior: "smooth" }));
+  tr.addEventListener("scroll", () => { n.textContent = tr.scrollLeft + tr.clientWidth >= tr.scrollWidth - 4 ? cards.length : idx() + 1; }, { passive: true });
+  let down = false, sx = 0, sl = 0;
+  tr.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") return; down = true; sx = e.clientX; sl = tr.scrollLeft; });
+  addEventListener("pointermove", (e) => { if (!down) return; if (Math.abs(e.clientX - sx) > 4) tr.classList.add("drag"); tr.scrollLeft = sl - (e.clientX - sx); });
+  addEventListener("pointerup", () => { if (!down) return; down = false; tr.classList.remove("drag"); });
+})();
+
+/* ---------- line-by-line heading reveal ---------- */
+$$(".h2.lines").forEach((h) => {
+  const words = h.textContent.trim().split(/\s+/);
+  h.setAttribute("aria-label", h.textContent.trim());
+  h.innerHTML = "";
+  words.forEach((w, i) => {
+    const l = document.createElement("span"); l.className = "l"; l.style.display = "inline-block"; l.setAttribute("aria-hidden", "true");
+    const s = document.createElement("span"); s.style.setProperty("--i", i); s.textContent = w;
+    l.appendChild(s); h.appendChild(l); if (i < words.length - 1) h.appendChild(document.createTextNode(" "));
+  });
+});
+const io = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("on"); io.unobserve(en.target); } }), { threshold: .15, rootMargin: "0px 0px -6% 0px" });
+$$(".rv,.lines").forEach((el) => io.observe(el));
+
+/* ---------- count-up (real values are in the markup) ---------- */
+if (!RM) {
+  const cio = new IntersectionObserver((ents) => ents.forEach((en) => {
+    if (!en.isIntersecting) return;
+    const el = en.target, to = +el.dataset.count, suf = el.dataset.suf, t0 = performance.now(), dur = 1600;
+    const tick = (t) => { const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4); el.textContent = Math.round(to * e) + suf; if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick); cio.unobserve(el);
+  }), { threshold: .5 });
+  $$("[data-count]").forEach((el) => { el.textContent = "0" + el.dataset.suf; cio.observe(el); });
+}
+
+/* ---------- parallax on the wide image ---------- */
+if (!RM) {
+  const im = $("[data-par]");
+  const par = () => { const r = im.parentElement.getBoundingClientRect(); const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; im.style.setProperty("--py", (-8 + p * -10).toFixed(2) + "%"); };
+  addEventListener("scroll", par, { passive: true }); par();
+}
+
+/* ---------- header: dropdowns, hide on scroll ---------- */
+(() => {
+  const hd = $("#hd"), items = $$("[data-dd]");
+  const close = (ex) => items.forEach((it) => { if (it !== ex) { it.dataset.open = "0"; $(".nl", it).setAttribute("aria-expanded", "false"); } });
+  items.forEach((it) => {
+    const b = $(".nl", it); let t;
+    const open = (v) => { it.dataset.open = v ? "1" : "0"; b.setAttribute("aria-expanded", String(v)); };
+    it.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { clearTimeout(t); close(it); open(true); } });
+    it.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") t = setTimeout(() => open(false), 200); });
+    b.addEventListener("click", () => { const v = it.dataset.open !== "1"; close(it); open(v); });
+  });
+  document.addEventListener("click", (e) => { if (!e.target.closest("[data-dd]")) close(null); });
+  let last = scrollY;
+  const onS = () => {
+    const y = scrollY;
+    hd.classList.toggle("solid", y > 40);
+    if (y > 300 && y > last + 2) { hd.classList.add("hide"); close(null); }
+    else if (y < last - 2 || y <= 300) hd.classList.remove("hide");
+    last = y;
+  };
+  addEventListener("scroll", onS, { passive: true }); onS();
+})();
+
+/* ---------- off-canvas ---------- */
+(() => {
+  const oc = $("#oc"), bg = $("#oc-bg"), bu = $("#burger");
+  const set = (v) => { oc.classList.toggle("open", v); bg.classList.toggle("open", v); oc.setAttribute("aria-hidden", String(!v)); bu.setAttribute("aria-expanded", String(v)); document.body.style.overflow = v ? "hidden" : ""; if (v) setTimeout(() => $("#oc-x").focus(), 350); else bu.focus(); };
+  bu.addEventListener("click", () => set(true));
+  $("#oc-x").addEventListener("click", () => set(false));
+  bg.addEventListener("click", () => set(false));
+  $$("#oc a").forEach((a) => a.addEventListener("click", () => set(false)));
+  $$("#oc [data-acc]").forEach((b) => b.addEventListener("click", () => {
+    const li = b.closest("li"), v = li.dataset.open !== "1";
+    $$("#oc .oc-nav > li[data-open]").forEach((o) => { o.dataset.open = "0"; $(".s", o).textContent = "+"; });
+    li.dataset.open = v ? "1" : "0"; $(".s", li).textContent = v ? "–" : "+";
+  }));
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && oc.classList.contains("open")) set(false); });
+})();
+
+/* ---------- footer form ---------- */
+$("#f-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const v = $("#f-email").value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { $("#f-email").focus(); return; }
+  location.href = "mailto:contact@streamstech.com?subject=" + encodeURIComponent("Start a conversation") + "&body=" + encodeURIComponent(v);
+});
+
+/* ---------- chat (reply logic ported verbatim from the homepage) ---------- */
+(() => {
+  const L = $("#chat-l"), C = $("#chat"), B = $("#chat-b"), F = $("#chat-f"), IN = $("#chat-i");
+  const add = (text, who) => { const m = document.createElement("div"); m.className = "msg " + who; m.textContent = text; B.appendChild(m); B.scrollTop = B.scrollHeight; };
+  add("Hello, I am Streams Assistance. Ask me about our services, the sectors we serve, how an engagement works, or how to reach the team.", "bot");
+  const set = (v) => { C.classList.toggle("open", v); C.setAttribute("aria-hidden", String(!v)); L.classList.toggle("hide", v); L.setAttribute("aria-expanded", String(v)); if (v) setTimeout(() => IN.focus(), 300); else L.focus(); };
+  L.addEventListener("click", () => set(true));
+  $("#chat-x").addEventListener("click", () => set(false));
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && C.classList.contains("open")) set(false); });
+  function chatReply(q) {
+    const t = q.toLowerCase();
+    const has = (...ws) => ws.some(w => t.includes(w));
+    if (has("hello", "hi ", "hey", "good morning", "good afternoon") && t.length < 24) return "Hello. Ask me anything about StreamsTech — our services, the sectors we work in, or how an engagement typically starts.";
+    if (has("gis", "map", "spatial", "geoserver", "postgis")) return "GIS is our core practice. We build custom GIS applications on PostGIS and GeoServer backends with Leaflet or Mapbox frontends, including offline-first field tools.\n\nRecent work includes the URP GIS platform for Dhaka and Sylhet (flood and fire risk mapping) and the LGED GIS Portal with 40+ layers for nationwide project planning.";
+    if (has("mel", "monitoring", "evaluation", "m&e", "beneficiar")) return "We deliver end-to-end Monitoring, Evaluation & Learning platforms: offline-first mobile data collection, beneficiary tracking and indicator dashboards.\n\nBInsight, built for BRAC International, runs M&E evidence at 1M+ beneficiary scale across seven African countries.";
+    if (has("augment", "hire", "developer", "engineer", "staff", "dedicated")) return "Team Augmentation embeds senior engineers directly in your team on demand — GIS specialists, .NET, Angular, Python and React. You keep the roadmap; we add capacity that ships from week one.";
+    if (has("bi", "dashboard", "power bi", "superset", "report", "intelligence")) return "Our Business Intelligence work covers Power BI, Apache Superset and custom dashboards, with the data pipelines and KPI reporting behind them — mostly for government agencies and NGOs.";
+    if (has("cloud", "aws", "devops", "hosting", "modernis", "moderniz", "legacy")) return "We host GIS and MEL platforms on AWS with cloud-native architecture, handle legacy modernisation, and set up scalable DevOps. Our Modernise & Extend engagement model is designed for exactly that.";
+    if (has("ai", "machine learning", "ml", "predict", "satellite")) return "Our applied AI & Machine Learning work focuses on spatial analysis, satellite change detection, MEL data intelligence and predictive analytics — always tied to a concrete operational decision.";
+    if (has("environment", "flood", "stormwater", "swmm", "water", "climate")) return "Environmental Intelligence covers SWMM-based stormwater modelling, flood risk, water quality and climate resilience platforms — often layered on top of our GIS work.";
+    if (has("enterprise", "web app", "application", "software", ".net", "react", "angular", "node")) return "Enterprise App Development is full-stack: .NET Core, Python and Node.js backends with Angular and React frontends. The Integrated Municipal Information System for Dhaka North City Corporation is one example.";
+    if (has("service", "what do you do", "offer", "capabilit")) return "We work across eight practices: GIS, Monitoring, Evaluation & Learning, Team Augmentation, Business Intelligence, Enterprise App Development, Cloud Solutions, AI & Machine Learning, and Environmental Intelligence.\n\nAsk about any one of them for detail.";
+    if (has("engagement", "how do you work", "model", "white-label", "white label", "from scratch", "process")) return "Four ways to work with us: Augment Your Team, White-Label Delivery Partner, Build From Scratch, and Modernise & Extend. Every engagement starts with a signed NDA and contract entity before kickoff.";
+    if (has("government", "public sector", "ministry", "agency", "municipal")) return "Government and public-sector agencies are our primary clients — city corporations, national engineering agencies and ministries. We build secure, GIS-driven systems designed for procurement and compliance requirements.";
+    if (has("ngo", "non-profit", "nonprofit", "multilateral", "world bank", "un ", "donor", "programme", "program")) return "We support development programmes and multilateral organisations with MEL platforms, results dashboards and evidence-based decision tools — built to work offline in the field and report upward to donors.";
+    if (has("industr", "sector", "who do you", "clients")) return "We serve government, multilateral organisations, non-profits, academia and research, transportation, utilities and private enterprises — 170+ clients across five continents over 20+ years.";
+    if (has("about", "company", "who are you", "streamstech", "streams tech", "history", "founded", "experience", "years")) return "StreamsTech is an engineering partner for national GIS platforms, global development programmes and enterprise teams — 170+ projects delivered, clients on five continents, and 20+ years of international delivery.";
+    if (has("where", "location", "office", "bangladesh", "dhaka", "address")) return "Our office is at House 16, Suite F4, Road 23, Block B, Banani, Dhaka 1213, Bangladesh. We work with teams across five continents.";
+    if (has("contact", "email", "phone", "call", "reach", "talk", "quote", "pricing", "price", "cost", "start")) return "The fastest route is contact@streamstech.com or +880 2 5503 3794. Share a short brief and we will come back with a scoping call — typically within two working days.";
+    if (has("case", "success", "story", "project", "portfolio", "work")) return "Recent success stories include the URP GIS platform (Dhaka & Sylhet), the LGED GIS Portal, BRAC International's BInsight MEL platform, and the DNCC Integrated Municipal Information System. Scroll to Success Stories to read them.";
+    if (has("thank", "thanks", "great", "perfect")) return "You are welcome. If you would like to take it further, contact@streamstech.com reaches the team directly.";
+    return "I can help with our services, the sectors we serve, engagement models, success stories, or how to get in touch. Which would you like to know about?";
+  }
+  F.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const q = IN.value.trim(); if (!q) return;
+    add(q, "me"); IN.value = "";
+    const ty = document.createElement("div"); ty.className = "typing"; ty.innerHTML = "<i></i><i></i><i></i>"; B.appendChild(ty); B.scrollTop = B.scrollHeight;
+    setTimeout(() => { ty.remove(); add(chatReply(q), "bot"); }, 700);
+  });
+})();
+})();
+</script>
+</body>
+</html>

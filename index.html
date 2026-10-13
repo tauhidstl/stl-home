@@ -2215,6 +2215,14 @@ class Component extends DCLogic {
   navRef = React.createRef();
   megaInnerRef = React.createRef();
   navMenus = [
+    { id: "home", label: "Home", href: "#top", cols: [
+      { id: "home-versions", label: "Homepage Versions", items: [
+        { t: "Home 1", d: "The current homepage.", ic: "home", href: "#top" },
+        { t: "Home 2", d: "The redesigned homepage.", ic: "home", href: "home-2.html" },
+        { t: "Home 3", d: "The dark-theme redesign.", ic: "home", href: "home-3.html" },
+        { t: "Home 4", d: "The panel-based redesign.", ic: "home", href: "home-4.html" }
+      ]}
+    ]},
     { id: "services", label: "Services", href: "#services", cols: [
       { id: "platforms", label: "Platforms & Data", items: [
         { t: "Geographic Information System", d: "National spatial platforms, land records and utility network models.", ic: "globe", href: "#services" },
@@ -2236,6 +2244,7 @@ class Component extends DCLogic {
   ];
   megaIcon(k) {
     return ({
+      home: "M3 11.5 12 4l9 7.5 M5.5 10v10h4.5v-6h4v6h4.5V10",
       globe: "M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20Z M2 12h20 M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z",
       clipboard: "M9 5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2Z M9 12h6 M9 16h6",
       chart: "M3 3v18h18 M7 16v-5 M12 16V8 M17 16v-3",

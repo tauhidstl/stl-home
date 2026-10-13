@@ -1,0 +1,607 @@
+================================================================
+STREAMSTECH — HOMEPAGE FULL TEXT CONTENT
+================================================================
+Source: index.html (live homepage)
+Compiled section by section, in on-page order.
+================================================================
+
+
+----------------------------------------------------------------
+NAVIGATION
+----------------------------------------------------------------
+Logo: Streams Tech
+
+Primary menu:
+- Home  (dropdown: Home 1 — the current homepage · Home 2 — Coming soon · Home 3 — Coming soon)
+- Services  (dropdown, two columns)
+    Platforms & Data
+      Geographic Information System — National spatial platforms, land records and utility network models.
+      Monitoring, Evaluation, and Learning — Offline-first field data and reporting for donor-funded programmes.
+      Business Intelligence — Dashboards, warehouses and Power BI that turn data into decisions.
+      AI/ML Services — Predictive models and automation built on your operational data.
+    Engineering & Delivery
+      Cloud Solutions — Deployment and operations inside government and enterprise constraints.
+      Environmental Intelligence — Climate, land and sensor pipelines for monitoring and MRV.
+      Enterprise Application Development — Portals, case management and integration layers across legacy systems.
+      Team Augmentation — Dedicated engineers embedded with your team for multi-year delivery.
+    Featured quote (BRAC International): "In our work with Streams Tech, they demonstrated a strong
+      understanding of complex development programme needs and translated them into a flexible, scalable,
+      and user-centric digital platform..." — Tasrin Jahan Shampa, Head of Technology, BRAC International
+    Footer links: Case Studies · Engagement Models · Talk to an Engineer · All Services
+- Industries
+- Insights
+- About
+- Careers
+
+Top-right: [Apps grid icon]  Contact Us
+
+Mobile menu accordion mirrors the same items, plus a bottom "Contact Us" button.
+
+
+----------------------------------------------------------------
+SECTION 1 — HERO
+----------------------------------------------------------------
+Background: looping aerial video of infrastructure/city.
+
+Headline:
+"The Engineering Partner Behind
+National GIS Platforms,
+Global Development Programs,
+and Enterprise Teams"
+
+Subheading:
+"We build custom software, GIS platforms, MEL systems, and data tools for enterprise
+teams and organisations where getting the software right actually matters — from
+national-scale spatial platforms to sustained, multi-year engagements."
+
+Buttons: [View Our Work]   Partner With Us
+
+Stat cards:
+  170+  Projects Delivered — Custom software, GIS and MEL platforms shipped across sectors.
+  60+   Clients Worldwide — Public agencies, NGOs and enterprises who keep coming back.
+  5     Continents Served — Teams delivering in Asia, Africa, Europe, the Americas and Oceania.
+  12+   Years of Delivery — More than a decade of sustained international engagements.
+
+Scroll cue: "Scroll"
+
+
+----------------------------------------------------------------
+SECTION 2 — WHERE WE DELIVER
+----------------------------------------------------------------
+Eyebrow: Where we deliver
+Heading: "Domain depth across four practices"
+Subtext: "Public agencies, development programmes and enterprise teams across four continents."
+
+1. GIS & Spatial
+   "Mapping platforms, spatial analytics and geodata pipelines for national agencies and
+   state governments."
+   Client tags: World Bank · Virginia State Government · GeoTerraImage SA
+
+2. MEL & Field Data
+   "Offline-first field data collection and monitoring systems that track programme
+   impact at scale."
+   Client tags: BRAC International · 7 African countries · 1M+ beneficiaries
+
+3. BI & Analytics
+   "Dashboards, data warehouses and reporting that turn scattered data into clear
+   decisions."
+   Client tags: Gapminder · Brunei Government · Ezispeak Australia
+
+4. Team Augmentation
+   "Dedicated engineers who embed with your team for multi-year product delivery."
+   Client tags: IQVIA · 30+ engineers · 7-year engagement
+
+
+----------------------------------------------------------------
+SECTION 3 — WHO WE BUILD FOR
+----------------------------------------------------------------
+Eyebrow: Who we build for
+Heading: "Built for teams delivering where it matters"
+Subtext: "Different teams, for different reasons each with a direct path through our services."
+
+1. GIS Firms & Environmental Consultancies
+   "Agencies building spatial platforms needing reliable senior engineering capacity."
+   CTA: Explore GIS Solutions
+
+2. International NGOs & Development Organizations
+   "Organizations running field programmes across Africa and Asia needing GIS-enabled
+   M&E systems, offline tools."
+   CTA: Explore MEL solutions
+
+3. Government & Commercial Clients
+   "Municipalities, utilities, and commercial firms needing bespoke spatial applications,
+   BI dashboards."
+   CTA: See our case studies
+
+4. Software Teams & Enterprises
+   "Technology companies needing senior engineers embedded in their team."
+   CTA: Explore team augmentation
+
+
+----------------------------------------------------------------
+SECTION 4 — OUR SERVICES
+----------------------------------------------------------------
+Eyebrow: Our services
+Heading: "Deep domain expertise delivered end to end"
+Subtext: "Whether you need engineers in your team, a full platform built, or a
+white-label delivery partner."
+
+01  Geographic Information System
+    "Custom GIS applications, PostGIS and GeoServer backends, Leaflet and Mapbox
+    frontends, offline-first field tools."  — View details
+
+02  Monitoring, Evaluation & Learning
+    "End-to-end MEL platforms, offline-first mobile data collection, beneficiary
+    tracking, indicator dashboards."  — View details
+
+03  Team Augmentation
+    "Senior engineers embedded on demand: GIS specialists, .NET, Angular, Python, and
+    React."  — View details
+
+04  Business Intelligence
+    "Power BI, Apache Superset, custom dashboards; data pipelines and KPI reporting for
+    government and NGOs."  — View details
+
+05  Enterprise App Development
+    "Full-stack .NET Core, Python, and Node.js backends with Angular and React
+    frontends."  — View details
+
+06  Cloud Solutions
+    "AWS-hosted GIS and MEL platforms, cloud-native architecture, legacy modernisation,
+    scalable DevOps."  — View details
+
+07  AI & Machine Learning
+    "Applied ML for spatial analysis, satellite change detection, MEL data intelligence,
+    predictive analytics."  — View details
+
+08  Environmental Intelligence
+    "SWMM-based stormwater modelling, flood risk, water quality, and climate resilience
+    platforms."  — View details
+
+
+----------------------------------------------------------------
+SECTION 5 — ENGAGEMENT MODELS
+----------------------------------------------------------------
+Eyebrow: Engagement Models
+Heading: "Choose your engagement model"
+Subtext: "Whether you need engineers in your team, a full platform built, or a
+white-label delivery partner - we have a model that fits."
+
+01 — Augment Your Team   [Most Popular Right Now]
+    "Senior engineers embedded directly in your team in your tools, repositories, and
+    communication channels. GIS specialists, .NET, Python, Angular, React."
+    - Full NDA + contract entity — Signed before kickoff, US entity on the paper.
+    - Onboarded within 2 weeks — Engineers in your tools inside a sprint.
+
+02 — White-Label Delivery Partner   [For Agencies]
+    "You win the contract, we deliver it under your brand. No direct client contact,
+    complete delivery accountability."
+    - Full IP transfer — Everything we build is yours outright.
+    - Relationships 5+ years — Most partners stay well past the first contract.
+
+03 — Build From Scratch   [For Direct Clients]
+    "End-to-end delivery of GIS platforms, MEL systems, enterprise applications, and
+    environmental intelligence tools. We own the delivery from architecture through
+    deployment and handover."
+    - Fixed scope or agile — Flexible engagement that fits your project.
+    - Architecture → deploy → support — We deliver, you scale. We support, you succeed.
+
+04 — Modernise & Extend   [For Existing Platforms]
+    "Upgrade legacy systems, migrate data pipelines, extend existing platforms. We
+    integrate into your current architecture and improve it without disrupting live
+    operations."
+    - Codebase audit included — We map what exists before touching it.
+    - Phased, no disruption — Shipped in stages, live systems stay up.
+
+
+----------------------------------------------------------------
+SECTION 6 — CLIENT EXPERIENCES (TESTIMONIALS)
+----------------------------------------------------------------
+Eyebrow: Client experiences
+Heading: "Experiences that speak for themselves"
+Subtext: "Hear from the programme leads, CTOs and founders who have trusted us with
+their most important platforms."
+
+1. Scott Forsyth — CTO, Dynamic Web North America
+   "I'm very happy to provide this heartfelt testimonial for Streams Tech and their
+   exceptional work in Power BI, SQL Server, and data analytics for our company,
+   Dynamic Web. Their team has expertly created multiple Power BI dashboards, set up
+   SQL Server Reporting Services reports, and provided advanced technical solutions,
+   always delivering the right fit for our needs. We're thankful for their continued
+   partnership."
+
+2. Steven Johnstone — Owner & COO, Ask'd — South Africa
+   "Streams Tech has been a game changer for Askd, a market research company in South
+   Africa. Since 2019, their team has provided excellent services, helping us enrich
+   our clients' data and analytics. I highly recommend Streams Tech for their
+   transformative solutions that will elevate your business."
+
+3. Dharmik Seth — Director, ST Advisory
+   "We've been working with Streams Tech for several years on data analytics and web
+   development projects in Malaysia and Brunei. The team has been great to partner
+   with. Their excellent communication and timely responses have ensured successful
+   project completion. We're excited to continue this partnership on future
+   projects."
+
+4. Giovanni Basso — International Business Manager, Philmark
+   "The contribution Streams Tech provide has been remarkable in the implementation of
+   SQL solutions, SQL Server, administration, and Power BI. Their contribution has not
+   only improved our data management, but also made us more competitive. Thank you,
+   Streams Tech."
+
+5. Garron Lipschitz — CEO, Confidence Club
+   "We engaged Streams Tech to build us a data pipeline and PowerBI dashboard and were
+   very impressed with their depth of knowledge and thoughtful, considered approach at
+   all times. As a result, will continue to engage them for our future needs."
+
+6. Alamgir Hossain Patwary — MIS & GIS Manager, CARE Bangladesh
+   "STREAM has been used in the SHOUHARDO III project since 2017. Its dynamism and
+   adaptability make it easy to use across web and mobile. Around 1 million
+   beneficiaries are served, monitored, evaluated, and reported through STREAM."
+
+7. S S Bakth Hindole — Deputy Director M&E, Helen Keller International
+   "iSTREAM is the core tool for SAPLING, transforming census, monitoring,
+   distribution, and evaluation. It enables data collection even in hard-to-reach
+   Bandarban, saving time and effort while adding greater value to daily M&E
+   operations."
+
+8. Ravi Kumar Raju Kalidindi — Client Partner & CEO, Application Objects Inc.
+   "Streams Tech, has been our offshore partner for close to 5+ years now. They are a
+   professional IT service provider with a good mix of Technical skills combined with
+   good delivery management support. Team was/is able to onboard skilled staff on all
+   types of development projects and for a wide range of functional needs. They have
+   been very flexible, accessible, honest and prompt with their service and
+   communication. We are so confident of their skills and service that we put them in
+   direct contact with our client management team on a few key programs. Team works
+   very cohesively and is well managed offshore. Not but the least these services come
+   at a reasonable cost which make this offshore model more enticing for our clients.
+   We are happy and recommend their services to other partner companies."
+
+9. Tasrin Jahan Shampa — Head of Technology, BRAC International
+   "In our work with Streams Tech, they demonstrated a strong understanding of complex
+   development programme needs and translated them into a flexible, scalable, and
+   user-centric digital platform. We value Streams Tech as a reliable partner and
+   appreciate their contribution to strengthening our digital ecosystem and enabling
+   data-driven programme management at scale."
+
+
+----------------------------------------------------------------
+SECTION 7 — SUCCESS STORIES
+----------------------------------------------------------------
+Eyebrow: Success stories
+Heading: "Complex requirements, production-ready software"
+Subtext: "National platforms, multi-country programmes, and municipal systems running
+in the field today."
+CTA: Read the full case studies
+
+Case 01 / 07 — URP  (City authorities)
+  Title: URP GIS — Advanced City-Scale Urban Resilience
+  Role: Urban Resilience Project, Dhaka & Sylhet
+  Outcome quote: "Flood and fire risk mapped for two cities so authorities can plan
+  resilient infrastructure"
+  Metric: 2 — Cities on one risk platform
+  Scope: Flood and fire risk GIS platform for Dhaka and Sylhet. Combines hazard
+  layers, exposure data, and risk modelling to help city authorities plan resilient
+  infrastructure and prioritise interventions.
+  Stack: GIS · Risk Modelling · Web
+  Impact:
+    → Hazard, exposure and risk layers in one view
+    → Intervention prioritisation for city planners
+    → Covers Dhaka and Sylhet city areas
+
+Case 02 / 07 — LGED  (Government)
+  Title: LGED GIS Portal for Project Planning
+  Role: Bangladesh's largest government engineering agency
+  Outcome quote: "40+ GIS layers for nationwide project planning, shipped in 3.5
+  months on budget"
+  Metric: 40+ — GIS layers, nationwide
+  Scope: Nationwide web-based GIS decision-support platform for LGED, Bangladesh's
+  largest government engineering agency. Delivers 40+ GIS layers, dynamic road
+  analysis, duplicate detection, and population insights — shipped in 3.5 months, on
+  budget.
+  Stack: PostGIS · GeoServer · AngularJS · ASP.NET MVC · Redis
+  Impact:
+    → 40+ GIS layers with dynamic road analysis
+    → Duplicate project detection and population insights
+    → Shipped in 3.5 months, on budget
+
+Case 03 / 07 — BRAC International  (International NGO)
+  Title: BRAC International — BInsight Platform
+  Role: AIM programme, 7 African countries
+  Outcome quote: "M&E evidence at 1M+ beneficiary scale across 7 African countries,
+  offline-first"
+  Metric: 1M+ — Beneficiaries at scale
+  Scope: GIS-enabled monitoring and evaluation platform for BRAC's AIM programme
+  across 7 African countries. Offline-first field data collection, results
+  dashboards, and evidence for programme decisions at 1M+ beneficiary scale.
+  Stack: PostGIS · Angular · Offline-first · AWS
+  Funder: BRAC · Mastercard Foundation
+  Impact:
+    → Offline-first field data collection
+    → Results dashboards across 7 countries
+    → Evidence at 1M+ beneficiary scale
+
+Case 04 / 07 — Dhaka North City Corporation  (Municipal)
+  Title: IMIS — Integrated Municipal Information System
+  Role: Integrated Municipal Information System
+  Outcome quote: "Service requests, digital payments and GIS assets in one citywide
+  municipal platform"
+  Metric: Citywide — Inclusive sanitation coverage
+  Scope: Hybrid web and mobile platform for municipal service delivery and citywide
+  inclusive sanitation. Integrates service requests, digital payments, and GIS-backed
+  asset tracking for municipal operations.
+  Stack: GIS · Hybrid Web & Mobile · Digital Payments · Cloud
+  Impact:
+    → Service requests and digital payments integrated
+    → GIS-backed asset tracking
+    → Hybrid web and mobile for field operations
+
+Case 05 / 07 — Bangladesh Computer Council  (Government)
+  Title: GeoDASH — National Open GIS Data Platform
+  Role: National open GIS data platform, phase two
+  Outcome quote: "A national open GIS data platform shared across every government
+  agency"
+  Metric: National — Open GIS data, all agencies
+  Scope: Second-phase development of Bangladesh's national open GIS data platform for
+  the Bangladesh Computer Council — publishing, cataloguing, and sharing geospatial
+  data across government agencies.
+  Stack: GeoNode · GeoServer · PostgreSQL
+  Funder: World Bank
+  Impact:
+    → Publishing and cataloguing of national geodata
+    → Cross-agency data sharing
+    → Second-phase platform development
+
+Case 06 / 07 — PKSF  (Rural development)
+  Title: PKSF — Rural WASH for HCD Project
+  Role: Rural WASH for HCD Project
+  Outcome quote: "Rural WASH interventions tracked from field level to national
+  dashboards"
+  Metric: Field→National — One monitoring chain
+  Scope: Cloud-based GIS and GPS monitoring and evaluation system for PKSF's rural
+  WASH programme — tracking water, sanitation, and hygiene interventions from field
+  level to national dashboards.
+  Stack: Angular · Spring Boot · PostGIS · GeoServer
+  Funder: IDA-AIIB
+  Impact:
+    → GPS-verified field monitoring
+    → Water, sanitation and hygiene indicators in one system
+    → National dashboards from cloud-hosted data
+
+Case 07 / 07 — CARE Bangladesh  (International NGO)
+  Title: CARE STREAM — Automated M&E System
+  Role: CARE STREAM automated M&E system
+  Outcome quote: "Donor-ready M&E analytics in production for CARE Bangladesh and
+  partner NGOs"
+  Metric: Live — In production across NGO partners
+  Scope: Automated monitoring and evaluation system in production use by CARE
+  Bangladesh and other NGO partners — streamlining indicator tracking, field
+  reporting, and donor-ready analytics.
+  Stack: React · Node.js · PostgreSQL + PostGIS
+  Funder: USAID
+  Impact:
+    → Automated indicator tracking
+    → Field reporting streamlined
+    → Donor-ready analytics in production
+
+
+----------------------------------------------------------------
+SECTION 8 — OUR CLIENTS
+----------------------------------------------------------------
+Eyebrow: Our clients
+Heading: "Trusted by Leading Clients"
+Subtext: "Building lasting partnerships with enterprises across industries and
+geographies."
+
+Client / partner logo wall (names as shown on the logos):
+ADB · Abt · DEQ · World Vision · JICA · Ask'd · BRAC · CARE · Confidence Club ·
+D&A · Tetra Tech · SYNCRO · LGED · Swisscontact · SNV · PKSF · Philmark · nmodule ·
+nvrc · MLG · GFA Consulting Group · Helen Keller International · Hilgers ·
+Helvetas · GeoTerraImage · DynamicWeb · The World Bank ·
+plus several additional unlabelled client/partner marks in the grid.
+
+(Also referenced elsewhere on the page as domain-specific client proof points:)
+- GIS & Spatial: World Bank, Virginia State Government, GeoTerraImage South Africa
+- MEL & Field Data: BRAC International, 7 African countries, 1M+ beneficiaries
+- BI & Analytics: Gapminder (World Bank-funded), Brunei Government, Ezispeak Australia
+- Team Augmentation: IQVIA, 30+ engineers, 7-year sustained engagement
+
+
+----------------------------------------------------------------
+SECTION 9 — TECHNOLOGY STACK
+----------------------------------------------------------------
+Eyebrow: Technology stack
+Heading: "Organised by domain, not a mile wide"
+Subtext: "Four domains, one senior team. The tools below are the ones we run in
+production — not a list of everything we have heard of."
+
+GIS & Spatial
+  PostGIS, GeoServer, QGIS, ArcGIS / ESRI, Leaflet, Mapbox GL JS, OpenLayers,
+  GDAL / OGR, OpenStreetMap, Google Maps API, Sentinel-2 / Satellite ML
+
+Backend & APIs
+  ASP.NET Core, Python, Node.js, Django / FastAPI, .NET 8, REST APIs, GraphQL,
+  Microservices, SignalR, gRPC
+
+Frontend & Mobile
+  Angular, React, TypeScript, Vue.js, React Native, Progressive Web Apps,
+  Offline-first architecture, KoBoToolbox, ODK
+
+Data & Analytics
+  PostgreSQL, Power BI, Apache Superset, SQL Server, Pandas, NumPy, AWS Redshift,
+  Entity Framework, SSRS
+
+Cloud & DevOps
+  AWS EC2, RDS, S3, Lambda, Docker, Kubernetes, GitHub Actions, Azure DevOps,
+  CI/CD pipelines, Terraform, NGINX
+
+
+----------------------------------------------------------------
+SECTION 10 — INDUSTRIES
+----------------------------------------------------------------
+Eyebrow: Industries
+Heading: "Domain-informed engineering, measurable in outcomes"
+Subtext: "From national land agencies to farm-level IoT and traceability from field
+to market."
+
+1. Government — "Secure systems for smarter governance."
+   Enabling governments with secure digital solutions and GIS-driven systems for
+   smarter governance.
+
+2. Utilities — "Asset intelligence at network scale."
+   Modernising utilities with asset intelligence, outage analytics, and customer
+   self-service portals.
+
+3. Multilateral Organizations — "Evidence that drives programme decisions."
+   Empowering programmes with M&E platforms, results dashboards, and evidence-based
+   decision support.
+
+4. Agriculture — "Traceable from field to market."
+   Advancing ag operations with IoT, farm analytics, and traceability from field to
+   market.
+
+5. Academia and Research — "Open data, faster discovery."
+   Accelerating discovery with data repositories, research workflows, and open
+   analytics portals.
+
+6. Healthcare — "Compliant systems for care delivery."
+   Strengthening care delivery with compliant data systems, patient flows, and
+   clinical analytics.
+
+7. Transportation — "Networks that run on real-time data."
+   Optimising networks with routing intelligence, fleet telemetry, and real-time
+   service performance.
+
+8. Land Development Agencies — "Permitting and mapping in one workflow."
+   Streamlining land services with permitting workflows, GIS mapping, and project
+   oversight tools.
+
+9. Private Organizations — "Custom software that scales with growth."
+   Scaling growth with custom applications, seamless integrations, and actionable
+   business intelligence.
+
+10. Non-profits — "Field data to donor report, transparently."
+    Driving impact with field data collection, M&E systems, and transparent donor
+    reporting.
+
+
+----------------------------------------------------------------
+SECTION 11 — WHY TEAMS CHOOSE STREAMS TECH
+----------------------------------------------------------------
+Eyebrow: Why teams choose Streams Tech
+Heading: "Why Teams Choose Streams Tech"  (aria-label: "Five reasons clients stay
+for years")
+
+01  Specialist depth in four domains
+    GIS platforms, MEL systems, BI & analytics, and team augmentation — not a
+    generic shop.
+
+02  Stack-agnostic delivery
+    .NET or Python backends, Angular or React frontends. We work in your
+    environment.
+
+03  US-registered, globally accountable
+    A US legal entity with the senior engineering team in Dhaka: enforceable
+    contracts, full IP transfer.
+
+04  Long-term partnerships
+    Our longest engagements run three to five years. We embed and stay rather than
+    act as a project vendor.
+
+05  Field-tested engineering
+    Offline-first apps, low-bandwidth optimisation, and GPS tools built for where
+    clients actually operate.
+
+
+----------------------------------------------------------------
+SECTION 12 — CALL TO ACTION ("LET'S TALK")
+----------------------------------------------------------------
+Marquee ribbon (top & bottom of section, scrolling):
+"LET'S TALK ◆ GIS PLATFORMS ◆ ENTERPRISE APPLICATIONS ◆ DATA & AI ◆ TEAM
+AUGMENTATION ◆ CLOUD & DEVOPS ◆" (repeats)
+
+Eyebrow: Let's talk
+Heading: "Looking for an engineering partner you can rely on?"
+Subtext: "Whether you're building from scratch, modernising, or extending your
+team."
+
+Buttons: [Let's Talk]   or email contact@streamstech.com
+
+Rotating seal text: "STREAMS TECH · SINCE 2012 · TALK TO AN ENGINEER ·"
+
+(Below: a scrolling gallery of project/product screenshots.)
+
+
+----------------------------------------------------------------
+FOOTER
+----------------------------------------------------------------
+Brand: Streams Tech
+Tagline: "An engineering partner for national GIS platforms, development
+programmes, and enterprise teams."
+
+Start a conversation
+  Email field placeholder: you@organisation.org
+  Button: Get in Touch
+  "Or email contact@streamstech.com"
+
+Social: Facebook · LinkedIn · X · YouTube
+
+Data & Intelligence
+  Geographic Information System
+  Monitoring, Evaluation & Learning
+  Business Intelligence
+  AI / ML Services  [New]
+  Environmental Intelligence
+
+Cloud & Engineering
+  Cloud Solutions
+  Enterprise Application Development
+  Team Augmentation
+
+Company
+  About Us
+  Who We Build For
+  Success Stories
+  Technology Stack
+  Engagement Models
+  Careers
+
+Offices
+  161 Fort Evans Rd NE, Suite 325, Leesburg, VA 20176, U.S.A.
+  +1 703 665 4700
+  House 16, Suite F4, Road 23, Block B, Banani, Dhaka 1213, Bangladesh
+  +880 2 5503 3794
+
+Get in touch
+  Contact Us
+  contact@streamstech.com
+  Request a Demo
+  Talk to an Engineer
+
+Certifications / awards statement:
+"Streams Tech is ISO 9001:2015 and ISO 27001:2022 certified and an ESRI Partner
+Network Bronze member. Our quality and information-security practices are audited
+to international standards, so your data and delivery are protected end to end."
+
+Awards displayed:
+  ISO 9001:2015 Certified Company
+  ISO 27001:2022 Certified Company
+  ESRI South Asia GIS Impact Award 2020
+  ESRI Partner Network Bronze
+  Global Nominee, NASA Space Apps 2015
+
+Copyright: © 2026 Streams Tech, Inc. All rights reserved
+
+Large wordmark graphic: "Streams Tech"
+
+
+----------------------------------------------------------------
+FLOATING CHAT WIDGET
+----------------------------------------------------------------
+Launcher button: "Ask StreamsTech"
+Greeting message: "Hello, I am Streams Assistance. Ask me about our services, the
+sectors we serve, how an engagement works, or how to reach the team."
+
+================================================================
+END OF DOCUMENT
+================================================================
